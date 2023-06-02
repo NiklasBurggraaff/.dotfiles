@@ -1,0 +1,6 @@
+!regolith.look.path: /usr/share/regolith-look/i3-default
+regolith.look.path: /usr/share/regolith-look/default
+regolith.wallpaper.file: /usr/share/backgrounds/ubuntu-default-greyscale-wallpaper.png
+regolith.wallpaper.options: zoom
+regolith.lockscreen.wallpaper.file: /usr/share/backgrounds/ubuntu-default-greyscale-wallpaper.png
+regolith.lockscreen.wallpaper.options: zoom

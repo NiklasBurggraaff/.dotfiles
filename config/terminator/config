@@ -1,0 +1,30 @@
+[global_config]
+  title_transmit_fg_color = "#24272b"
+  title_transmit_bg_color = "#f2e6d4"
+  title_receive_fg_color = "#24272b"
+  title_receive_bg_color = "#f2e6d4"
+  title_inactive_fg_color = "#9e9e9e"
+  title_inactive_bg_color = "#181b1f"
+  suppress_multiple_term_dialog = True
+  title_use_system_font = False
+  title_font = JetBrains Mono Medium 12
+[keybindings]
+[profiles]
+  [[default]]
+    background_color = "#24272b"
+    cursor_color = "#aaaaaa"
+    font = JetBrainsMono Nerd Font 14
+    foreground_color = "#9e9e9e"
+    scrollback_infinite = True
+    palette = "#181b1f:#e18163:#4eb67f:#b49e33:#8c96ec:#d07eba:#00b0d2:#fff7ed:#3e4044:#f48e74:#61c68a:#c7ad40:#97a6ff:#e18dce:#1ac2e1:#f2e6d4"
+    use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
