@@ -13,17 +13,20 @@ setopt HIST_SAVE_NO_DUPS
 export HISTSIZE=10000
 export SAVEHIST=10000
 
-# Completion
-source $ZDOTDIR/completion.zsh
+# Other
+source $ZDOTDIR/zshrc/aliases.zsh
+source $ZDOTDIR/zshrc/completion.zsh
+source $ZDOTDIR/zshrc/vim-bindings.zsh
 
+# Plugins
 fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/plugins/bd/bd.zsh
 
 # Powerlevel10k
 source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
-source $HOME/.config/zsh/zshrc/aliases.zsh
 
 # Setting PATH for Go
 export PATH="$GOPATH/bin:$PATH"
@@ -47,5 +50,6 @@ export PATH="$PNPM_HOME:$PATH"
 #export SDKMAN_DIR="/Users/niklas/.sdkman"
 #[[ -s "/Users/niklas/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/niklas/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
 
 # zprof
