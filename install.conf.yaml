@@ -19,5 +19,8 @@
           glob: true
           path: fonts/*
 
+- create:
+      - ~/.config/cache/zsh
+
 - shell:
       - [git submodule update --init --recursive, Installing submodules]

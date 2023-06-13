@@ -7,12 +7,21 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# History
+export HISTFILE="$XDG_CACHE_HOME/zsh/.zhistory"
+setopt HIST_SAVE_NO_DUPS
+export HISTSIZE=10000
+export SAVEHIST=10000
+
 # Completion
 source $ZDOTDIR/completion.zsh
 
+fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
+source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Powerlevel10k
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 source $HOME/.config/zsh/zshrc/aliases.zsh
 

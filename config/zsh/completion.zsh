@@ -32,9 +32,9 @@ bindkey -M menuselect '^xu' undo                           # Undo
 
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
+	compinit -d "${XDG_CACHE_HOME:-${HOME}}/zsh/.zcompdump-${HOST}";
 else
-	compinit -C;
+	compinit -C -d "${XDG_CACHE_HOME:-${HOME}}/zsh/.zcompdump-${HOST}";
 fi;
 
 _comp_options+=(globdots) # With hidden files
