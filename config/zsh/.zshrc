@@ -1,17 +1,20 @@
 # zmodload zsh/zprof
 
-source $HOME/.config/zsh/zshrc/terminal.zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Completion
+source $ZDOTDIR/completion.zsh
+
+# Powerlevel10k
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
 source $HOME/.config/zsh/zshrc/aliases.zsh
-
-eval $(thefuck --alias)
-
-export EUFS=/Users/niklas/Documents/University/EUFS
-export Y1="/Users/niklas/Documents/University/Year 1"
-export Y2="/Users/niklas/Documents/University/Year 2"
-export Y3="/Users/niklas/Documents/University/Year 3"
-export Y4="/Users/niklas/Documents/University/Year 4"
-export PROJECTS="/Users/niklas/Developer/Projects"
-export SANDBOX="/Users/niklas/Developer/Sandbox"
 
 # Setting PATH for Go
 export PATH="$GOPATH/bin:$PATH"

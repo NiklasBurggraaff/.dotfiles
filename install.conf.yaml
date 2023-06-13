@@ -10,7 +10,6 @@
           recursive: true
 
 - link:
-      ~/.p10k.zsh: home/.p10k.zsh
       ~/.zshenv: home/.zshenv
       ~/.config/:
           glob: true
