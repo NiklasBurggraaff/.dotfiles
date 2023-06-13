@@ -4,21 +4,19 @@
           relink: true
 
 - clean:
-      ~/test:
+      ~:
           force: true
-      ~/test/.config:
+      ~/.config:
           recursive: true
 
 - link:
-      ~/test/.p10k.zsh: home/.p10k.zsh
-      ~/test/.zprofile: home/.zprofile
-      ~/test/.zshenv: home/.zshenv
-      ~/test/.zshrc: home/.zshrc
-      ~/test/.config/:
+      ~/.p10k.zsh: home/.p10k.zsh
+      ~/.zshenv: home/.zshenv
+      ~/.config/:
           glob: true
           path: config/*
           exclude: [config/Code]
-      ~/test/.local/share/fonts/:
+      ~/.local/share/fonts/:
           glob: true
           path: fonts/*
 
