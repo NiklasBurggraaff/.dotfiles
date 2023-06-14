@@ -1,7 +1,8 @@
-
+# Active vi mode
 bindkey -v
 export KEYTIMEOUT=1
 
+# Change cursor to beam in insert mode and block in normal mode
 cursor_mode() {
     # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
     cursor_block='\e[2 q'
@@ -29,10 +30,12 @@ cursor_mode() {
 
 cursor_mode
 
+# Use v in normal mode to edit the command in editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Add text objects
 autoload -Uz select-bracketed select-quoted
 zle -N select-quoted
 zle -N select-bracketed
@@ -45,3 +48,13 @@ for km in viopp visual; do
     bindkey -M $km $c select-bracketed
   done
 done
+
+# Mimic surround plugin
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -M vicmd cs change-surround
+bindkey -M vicmd ds delete-surround
+bindkey -M vicmd ys add-surround
+bindkey -M visual S add-surround

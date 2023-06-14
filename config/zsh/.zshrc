@@ -13,10 +13,8 @@ setopt HIST_SAVE_NO_DUPS
 export HISTSIZE=10000
 export SAVEHIST=10000
 
-# Other
-source $ZDOTDIR/zshrc/aliases.zsh
-source $ZDOTDIR/zshrc/completion.zsh
-source $ZDOTDIR/zshrc/vim-bindings.zsh
+# Source all scripts in zshrc folder
+for f in $ZDOTDIR/zshrc/*; do source $f; done
 
 # Plugins
 fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
