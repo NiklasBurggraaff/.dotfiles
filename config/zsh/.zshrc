@@ -25,9 +25,11 @@ function zvm_after_init() {
 
 # Plugins
 fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source $ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source $ZDOTDIR/plugins/bd/bd.zsh
+
+# Functions
+source $ZDOTDIR/functions/bd.zsh
 
 # Powerlevel10k
 source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
