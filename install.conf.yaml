@@ -11,6 +11,7 @@
 
 - link:
       ~/.zshenv: home/.zshenv
+      ~/.hushlogin: home/.hushlogin
       ~/.config/:
           glob: true
           path: config/*
