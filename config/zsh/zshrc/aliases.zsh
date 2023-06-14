@@ -22,16 +22,15 @@ alias vi="nvim"
 alias v="vim ."
 
 # Config files
-alias zshconf="vim ~/.zshrc"
 alias zenvconf="vim ~/.zshenv"
-alias zprofileconf="vim ~/.zprofile"
-alias ohmyzshconf="vim ~/.oh-my-zsh"
+alias zshconf="vim $ZDOTDIR/.zshrc"
+alias zprofileconf="vim $ZDOTDIR/.zprofile"
 alias terminatorconf="vim ~/.config/terminator/config"
 alias gitconf="vim ~/.gitconfig"
 alias tmuxconf="vim ~/.config/tmux/tmux.conf"
 
 # Source config files
-alias zshs="source ~/.zshrc"
+alias zshs="source $ZDOTDIR/.zshrc"
 alias tmuxs="tmux source ~/.config/tmux/tmux.conf"
 
 # apt
