@@ -24,11 +24,12 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
-bindkey -M menuselect '^xg' clear-screen
-bindkey -M menuselect '^xi' vi-insert                      # Insert
-bindkey -M menuselect '^xh' accept-and-hold                # Hold
-bindkey -M menuselect '^xn' accept-and-infer-next-history  # Next
-bindkey -M menuselect '^xu' undo                           # Undo
+# Other menu keybindings
+bindkey -M menuselect '^zi' vi-insert                      # Interactive
+bindkey -M menuselect '^zh' accept-and-hold                # Hold
+bindkey -M menuselect '^zn' accept-and-infer-next-history  # Next
+bindkey -M menuselect '^zu' undo                           # Undo
+bindkey -M menuselect '^zr' redo                           # Redo
 
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
