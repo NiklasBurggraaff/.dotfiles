@@ -4,7 +4,7 @@
           relink: true
 
 - clean:
-      ~:
+      "~":
           force: true
       ~/.config:
           recursive: true
@@ -26,3 +26,5 @@
 
 - shell:
       - [git submodule update --init --recursive, Installing submodules]
+      - ["[ \"$(basename -- \"$SHELL\")\" != \"zsh\" ] && chsh -s $(which zsh) || true",
+        Setting zsh as default shell]
