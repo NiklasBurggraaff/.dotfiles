@@ -11,6 +11,7 @@
 
 - link:
       ~/.zshenv: home/.zshenv
+      ~/.gitconfig: home/.gitconfig
       ~/.hushlogin: home/.hushlogin
       ~/.config/:
           glob: true

@@ -1,0 +1,10 @@
+[user]
+	email = niklasburggraaff@gmail.com
+	name = Niklas Burggraaff
+[include]
+	path = ~/.config/git/gitconfig/aliases.gitconfig
+	path = ~/.config/git/gitconfig/core.gitconfig
+	path = ~/.config/git/gitconfig/init.gitconfig
+	path = ~/.config/git/gitconfig/pull.gitconfig
+[help]
+	autocorrect = 1
