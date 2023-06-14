@@ -16,9 +16,17 @@ export SAVEHIST=10000
 # Source all scripts in zshrc folder
 for f in $ZDOTDIR/zshrc/*; do source $f; done
 
+# Fix to make vi-mode work with zsh-syntax-highlighting
+# https://github.com/jeffreytse/zsh-vi-mode/pull/188#issuecomment-1453640946
+function zvm_after_init() {
+  autoload add-zle-hook-widget
+  add-zle-hook-widget zle-line-pre-redraw zvm_zle-line-pre-redraw
+}
+
 # Plugins
 fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $ZDOTDIR/plugins/bd/bd.zsh
 
 # Powerlevel10k
