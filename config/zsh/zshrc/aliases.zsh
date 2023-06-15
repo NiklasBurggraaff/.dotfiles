@@ -2,8 +2,12 @@
 # Aliases
 ###############################
 
+# View help
+alias "?"="glow $ZDOTDIR/README.md"
+alias "??"="glow -p $ZDOTDIR/README_FULL.md"
+
 # Make sure sudo keeps the environment
-alias sudo='nocorrect sudo -E '
+alias sudo="nocorrect sudo -E "
 
 # tmux sessionizer
 alias t="~/.tmux/tmux-sessionizer.bash"
@@ -46,4 +50,3 @@ alias xh="xrandr --output HDMI-2 --auto --left-of eDP-1"
 alias xj="xrandr --output HDMI-2 --auto --below eDP-1"
 alias xk="xrandr --output HDMI-2 --auto --above eDP-1"
 alias xx="xrandr --output HDMI-2 --off && xrandr --output eDP-1 --auto"
-
