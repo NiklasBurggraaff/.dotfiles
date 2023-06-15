@@ -13,10 +13,8 @@ alias sudo="nocorrect sudo -E "
 alias t="~/.tmux/tmux-sessionizer.bash"
 
 # General
-alias l="ll -a"
-alias lg="ll -a | grep"
-alias h="history"
-alias hg="history | grep"
+alias l="ls -a"
+alias lg="ls -a | grep"
 alias open="xdg-open" # Open folder in GUI
 
 # Neovim
