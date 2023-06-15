@@ -2,18 +2,15 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "config/zsh/powerlevel10k"]
+	path = config/zsh/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
 [submodule "config/zsh/plugins/zsh-completions"]
 	path = config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
 [submodule "config/zsh/plugins/zsh-syntax-highlighting"]
 	path = config/zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule "config/zsh/powerlevel10k"]
-	path = config/zsh/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "config/zsh/plugins/zsh-vi-mode"]
-	path = config/zsh/plugins/zsh-vi-mode
-	url = https://github.com/jeffreytse/zsh-vi-mode.git
 [submodule "config/zsh/plugins/zsh-autosuggestions"]
 	path = config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
