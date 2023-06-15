@@ -24,10 +24,9 @@ function zvm_after_init() {
 }
 
 # Plugins
-fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
+source $ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source $ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # Functions
 source $ZDOTDIR/functions/bd.zsh
