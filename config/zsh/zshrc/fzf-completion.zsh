@@ -1,3 +1,5 @@
+# https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
+
 #     ____      ____
 #    / __/___  / __/
 #   / /_/_  / / /_
@@ -323,6 +325,8 @@ bindkey '^I' fzf-completion
   eval $__fzf_completion_options
   'unset' '__fzf_completion_options'
 }
+
+# CUSTOM ADDITIONS
 
 _fzf_comprun() {
     local command=$1

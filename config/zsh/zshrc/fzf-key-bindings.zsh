@@ -1,3 +1,5 @@
+# https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
+
 #     ____      ____
 #    / __/___  / __/
 #   / /_/_  / / /_
@@ -118,6 +120,8 @@ bindkey -M viins '^R' fzf-history-widget
   eval $__fzf_key_bindings_options
   'unset' '__fzf_key_bindings_options'
 }
+
+# CUSTOM ADDITIONS
 
 export FZF_CTRL_T_OPTS="--height 60% \
 --border sharp \
