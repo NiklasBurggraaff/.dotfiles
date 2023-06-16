@@ -25,6 +25,11 @@ Use `??` alias to view full README
 - btop: `btop` to view system resources
 - exa: `exa` to list files (alternative to `ls`)
 - dust: `dust` to view disk usage
+- awk: `awk '<pattern>' <file>` to search for pattern
+- sed: `sed 's/<find>/<replace>/'` to find and replace
+- jq: `jq '<transform>` to transform JSON
+- tail: `tail -f <file>` to view file changes
+- head: `head -n <number> <file>` to view first n lines of file
 
 ## ZSH Plugins
 

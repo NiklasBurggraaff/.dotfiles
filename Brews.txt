@@ -5,3 +5,4 @@ bat
 glow
 btop
 dust
+jq
