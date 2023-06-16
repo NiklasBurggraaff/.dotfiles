@@ -18,6 +18,7 @@ Use `??` alias to view full README
 - fd: `fd <pattern>` to search for files
 - bat: `bat <file>` to view code
 - glow: `glow <file>` to view markdown
+- btop: `btop` to view system resources
 
 ## ZSH Plugins
 

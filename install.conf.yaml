@@ -20,6 +20,7 @@
       ~/.local/share/fonts/:
           glob: true
           path: fonts/*
+      ~/.config/btop/btop.conf: single/btop.conf
 
 - create:
       - ~/.config/cache/zsh
