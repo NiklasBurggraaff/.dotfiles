@@ -40,6 +40,7 @@ Use `??` alias to view full README
 - tail: `tail -f <file>` to view file changes
 - head: `head -n <number> <file>` to view first n lines of file
 - zoxide: `z <directory>` to jump to directory
+- oha: `oha <url> -z <duration>` to test HTTP endpoints
 
 ## ZSH Plugins
 
