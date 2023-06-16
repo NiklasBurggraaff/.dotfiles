@@ -17,15 +17,22 @@ alias sudo="nocorrect sudo -E "
 alias t="~/.tmux/tmux-sessionizer.bash"
 
 # List files
-alias ls="exa"
+alias ls="lsd"
 alias la="ls -a"
-alias ll="la -lh --git"
-alias tr="exa --tree --level=2"
+alias ll="ls -l"
+alias lla="ls -la"
+alias lal="ls -al"
+alias lh="ls --hyperlink=auto"
+alias tr="ls --tree --depth=2"
 alias tra="tr -a"
-alias trl="tra -lh --git"
-alias tree="exa --tree --level=8"
+alias trl="tr -l"
+alias trla="tr -la"
+alias tral="tr -al"
+alias tree="ls --tree --depth=8"
 alias treea="tree -a"
-alias treel="treea -lh --git"
+alias treel="tree -l"
+alias treela="tree -la"
+alias treeal="tree -al"
 
 # Linux open
 if [[ "${OS}" == "Linux" ]]

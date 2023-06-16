@@ -10,17 +10,22 @@
           recursive: true
 
 - link:
+      # Home
       ~/.zshenv: home/.zshenv
       ~/.gitconfig: home/.gitconfig
       ~/.hushlogin: home/.hushlogin
+      # Config
       ~/.config/:
           glob: true
           path: config/*
           exclude: [config/Code]
+      # Single files
+      ~/.config/btop/btop.conf: single/btop.conf
+      ~/.config/lsd/config.yaml: single/lsd.yaml
+      # Misc
       ~/.local/share/fonts/:
           glob: true
           path: fonts/*
-      ~/.config/btop/btop.conf: single/btop.conf
 
 - create:
       - ~/.config/cache/zsh

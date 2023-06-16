@@ -14,15 +14,16 @@ Use `??` alias to view full README
 - `d`: List directory stack
 - `1` - `9`: Jump to directory in stack
 - `**`: fzf completion
-- `ls`: Uses `exa` instead of `ls`
+- `ls`: Uses `lsd` instead of `ls`
 - `la`: List all files
-- `ll`: List all files with details
+- `ll`: List files with details
+- `lh`: List files
 - `tr`: List files in tree format (depth 2)
-- `tra`: Tree all files (depth 2)
-- `trl`: Tree all files with details (depth 2)
+- `tra`: Tree of all files (depth 2)
+- `trl`: Tree of files with details (depth 2)
 - `tree`: List files in tree format (depth 8)
-- `atree`: Tree all files (depth 8)
-- `ltree`: Tree all files with details (depth 2)
+- `treea`: Tree of all files (depth 8)
+- `treel`: Tree of files with details (depth 8)
 - `z`: Use `zoxide` to jump to directory
 - `du`: List disk usage
 
@@ -32,7 +33,9 @@ Use `??` alias to view full README
 - bat: `bat <file>` to view code
 - glow: `glow <file>` to view markdown
 - btop: `btop` to view system resources
-- exa: `exa` to list files (alternative to `ls`)
+  - config: `~/.config/btop/btop.conf`
+- lsd: `lsd` to list files (alternative to `ls`)
+  - config: `~/.config/lsd/config.yaml`
 - dust: `dust` to view disk usage
 - awk: `awk '<pattern>' <file>` to search for pattern
 - sed: `sed 's/<find>/<replace>/'` to find and replace

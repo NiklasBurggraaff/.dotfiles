@@ -8,3 +8,4 @@ dust
 jq
 zoxide
 oha
+lsd

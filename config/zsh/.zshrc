@@ -19,7 +19,11 @@ setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
 alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+for index ({1..9})
+do
+  alias "$index"="cd +${index}"
+done
+unset index
 
 # Source all scripts in zshrc folder
 for f in $ZDOTDIR/zshrc/*; do source $f; done
