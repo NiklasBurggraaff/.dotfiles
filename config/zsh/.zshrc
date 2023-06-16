@@ -16,6 +16,13 @@ source $ZDOTDIR/plugins/fzf/fzf.zsh
 # Powerlevel10k
 source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+# Source all FUNCTIONS in functions folder
+for f in $ZDOTDIR/functions/*; do source $f; done
+
+# Source all SCRIPTS in zshrc folder
+for f in $ZDOTDIR/zshrc/*; do source $f; done
+
+
 
 # History
 export HISTFILE="$XDG_CACHE_HOME/zsh/.zhistory"
@@ -35,22 +42,8 @@ do
 done
 unset index
 
-# Source all functions in functions folder
-for f in $ZDOTDIR/functions/*; do source $f; done
-
-# Source all scripts in zshrc folder
-for f in $ZDOTDIR/zshrc/*; do source $f; done
-
-# Fix to make vi-mode work with zsh-syntax-highlighting
-# https://github.com/jeffreytse/zsh-vi-mode/pull/188#issuecomment-1453640946
-function zvm_after_init() {
-  autoload add-zle-hook-widget
-  add-zle-hook-widget zle-line-pre-redraw zvm_zle-line-pre-redraw
-}
 
 
-# Setting PATH for Go
-export PATH="$GOPATH/bin:$PATH"
 # Setting path for PostgresQL
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 

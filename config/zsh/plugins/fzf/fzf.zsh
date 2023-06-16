@@ -1,2 +1,2 @@
-source completion.zsh
-source key-bindings.zsh
+source $ZDOTDIR/plugins/fzf/completion.zsh
+source $ZDOTDIR/plugins/fzf/key-bindings.zsh
