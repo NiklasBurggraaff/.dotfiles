@@ -5,8 +5,10 @@ export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
 
 # Editor
 export EDITOR="nvim"
+export PAGER="less -r"
 export VISUAL="nvim"
 
 # zsh
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
+export OS="$(uname)"
