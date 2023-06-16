@@ -7,6 +7,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Plugins
+source $ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh
+source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source $ZDOTDIR/plugins/fzf/fzf.zsh
+
+# Powerlevel10k
+source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+
 # History
 export HISTFILE="$XDG_CACHE_HOME/zsh/.zhistory"
 setopt HIST_SAVE_NO_DUPS
@@ -25,6 +35,9 @@ do
 done
 unset index
 
+# Source all functions in functions folder
+for f in $ZDOTDIR/functions/*; do source $f; done
+
 # Source all scripts in zshrc folder
 for f in $ZDOTDIR/zshrc/*; do source $f; done
 
@@ -34,18 +47,6 @@ function zvm_after_init() {
   autoload add-zle-hook-widget
   add-zle-hook-widget zle-line-pre-redraw zvm_zle-line-pre-redraw
 }
-
-# Plugins
-source $ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-
-# Functions
-source $ZDOTDIR/functions/bd.zsh
-
-# Powerlevel10k
-source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 
 # Setting PATH for Go
