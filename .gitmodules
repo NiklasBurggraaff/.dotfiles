@@ -14,3 +14,6 @@
 [submodule "config/zsh/plugins/zsh-autosuggestions"]
 	path = config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "config/zsh/plugins/alias-tips"]
+	path = config/zsh/plugins/alias-tips
+	url = https://github.com/djui/alias-tips.git

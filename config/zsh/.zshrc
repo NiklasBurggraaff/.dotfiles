@@ -12,10 +12,12 @@ source $ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $ZDOTDIR/plugins/fzf/fzf.zsh
+source $ZDOTDIR/plugins/alias-tips/alias-tips.plugin.zsh
 
 # Powerlevel10k
 source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+
 # Source all FUNCTIONS in functions folder
 for f in $ZDOTDIR/functions/*; do source $f; done
 
