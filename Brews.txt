@@ -1,0 +1,7 @@
+zsh
+fzf
+fd
+bat
+glow
+btop
+dust
