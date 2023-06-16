@@ -17,8 +17,9 @@ alias sudo="nocorrect sudo -E "
 alias t="~/.tmux/tmux-sessionizer.bash"
 
 # General
-alias l="ls -a"
-alias lg="ls -a | grep"
+alias ls="exa"
+alias la="exa -a"
+alias ll="exa -lah --git"
 alias open="xdg-open" # Open folder in GUI
 
 # Neovim
