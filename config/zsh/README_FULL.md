@@ -11,6 +11,8 @@ Use `??` alias to view full README
 
 ## Aliases
 
+- `d`: List directory stack
+- `1` - `9`: Jump to directory in stack
 - `**`: fzf completion
 - `ls`: Uses `exa` instead of `ls`
 - `la`: List all files
@@ -21,6 +23,7 @@ Use `??` alias to view full README
 - `tree`: List files in tree format (depth 8)
 - `atree`: Tree all files (depth 8)
 - `ltree`: Tree all files with details (depth 2)
+- `z`: Use `zoxide` to jump to directory
 - `du`: List disk usage
 
 ## Tools
@@ -36,6 +39,7 @@ Use `??` alias to view full README
 - jq: `jq '<transform>` to transform JSON
 - tail: `tail -f <file>` to view file changes
 - head: `head -n <number> <file>` to view first n lines of file
+- zoxide: `z <directory>` to jump to directory
 
 ## ZSH Plugins
 

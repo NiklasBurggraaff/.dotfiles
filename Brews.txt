@@ -6,3 +6,4 @@ glow
 btop
 dust
 jq
+zoxide

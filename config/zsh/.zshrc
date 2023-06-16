@@ -13,6 +13,14 @@ setopt HIST_SAVE_NO_DUPS
 export HISTSIZE=10000
 export SAVEHIST=10000
 
+# Directory stack
+setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
+
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
 # Source all scripts in zshrc folder
 for f in $ZDOTDIR/zshrc/*; do source $f; done
 
@@ -58,6 +66,5 @@ export PATH="$PNPM_HOME:$PATH"
 #export SDKMAN_DIR="/Users/niklas/.sdkman"
 #[[ -s "/Users/niklas/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/niklas/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
 
 # zprof
