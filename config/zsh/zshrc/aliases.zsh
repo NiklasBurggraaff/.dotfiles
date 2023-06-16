@@ -6,6 +6,10 @@
 alias "?"="glow $ZDOTDIR/README.md"
 alias "??"="glow -p $ZDOTDIR/README_FULL.md"
 
+# View configuration
+alias zals="alias"
+alias zbinds="bindkey -M emacs"
+
 # Make sure sudo keeps the environment
 alias sudo="nocorrect sudo -E "
 
