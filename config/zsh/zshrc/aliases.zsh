@@ -16,11 +16,16 @@ alias sudo="nocorrect sudo -E "
 # tmux sessionizer
 alias t="~/.tmux/tmux-sessionizer.bash"
 
-# General
+# List files
 alias ls="exa"
 alias la="exa -a"
 alias ll="exa -lah --git"
-alias open="xdg-open" # Open folder in GUI
+
+# Linux open
+if [[ "${OS}" == "Linux" ]]
+then
+    alias open="xdg-open" # Open folder in GUI
+fi
 
 # Neovim
 alias vim="nvim"
