@@ -8,7 +8,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Plugins
-source $ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh
+source $ZDOTDIR/plugins/completion.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $ZDOTDIR/plugins/fzf/fzf.zsh

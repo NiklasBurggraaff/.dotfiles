@@ -1,11 +1,11 @@
 # https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
 
-  # ____ ___  __  __ ____  _     _____ _____ ___ ___  _   _ 
+#   ____ ___  __  __ ____  _     _____ _____ ___ ___  _   _ 
 #  / ___/ _ \|  \/  |  _ \| |   | ____|_   _|_ _/ _ \| \ | |
 # | |  | | | | |\/| | |_) | |   |  _|   | |  | | | | |  \| |
 # | |__| |_| | |  | |  __/| |___| |___  | |  | | |_| | |\  |
 #  \____\___/|_|  |_|_|   |_____|_____| |_| |___\___/|_| \_|
- #
+#
 
 # +---------+
 # | General |
@@ -18,20 +18,6 @@ fpath=($DOTFILES/zsh/plugins/zsh-completions/src $fpath)
 
 # Should be called before compinit
 zmodload zsh/complist
-
-# Use hjlk in menu selection (during completion)
-# Doesn't work well with interactive mode
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-
-# Other menu keybindings
-bindkey -M menuselect '^zi' vi-insert                      # Interactive
-bindkey -M menuselect '^zh' accept-and-hold                # Hold
-bindkey -M menuselect '^zn' accept-and-infer-next-history  # Next
-bindkey -M menuselect '^zu' undo                           # Undo
-bindkey -M menuselect '^zr' redo                           # Redo
 
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
