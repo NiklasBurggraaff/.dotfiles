@@ -18,8 +18,14 @@ alias t="~/.tmux/tmux-sessionizer.bash"
 
 # List files
 alias ls="exa"
-alias la="exa -a"
-alias ll="exa -lah --git"
+alias la="ls -a"
+alias ll="la -lh --git"
+alias tr="exa --tree --level=2"
+alias tra="tr -a"
+alias trl="tra -lh --git"
+alias tree="exa --tree --level=8"
+alias treea="tree -a"
+alias treel="treea -lh --git"
 
 # Linux open
 if [[ "${OS}" == "Linux" ]]

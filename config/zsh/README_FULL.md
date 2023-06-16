@@ -15,6 +15,12 @@ Use `??` alias to view full README
 - `ls`: Uses `exa` instead of `ls`
 - `la`: List all files
 - `ll`: List all files with details
+- `tr`: List files in tree format (depth 2)
+- `tra`: Tree all files (depth 2)
+- `trl`: Tree all files with details (depth 2)
+- `tree`: List files in tree format (depth 8)
+- `atree`: Tree all files (depth 8)
+- `ltree`: Tree all files with details (depth 2)
 - `du`: List disk usage
 
 ## Tools
