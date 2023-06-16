@@ -27,6 +27,9 @@ then
     alias open="xdg-open" # Open folder in GUI
 fi
 
+# Disk utility
+alias du="dust"
+
 # Neovim
 alias vim="nvim"
 alias vi="nvim"

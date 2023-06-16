@@ -12,6 +12,10 @@ Use `??` alias to view full README
 ## Aliases
 
 - `**`: fzf completion
+- `ls`: Uses `exa` instead of `ls`
+- `la`: List all files
+- `ll`: List all files with details
+- `du`: List disk usage
 
 ## Tools
 
@@ -19,6 +23,8 @@ Use `??` alias to view full README
 - bat: `bat <file>` to view code
 - glow: `glow <file>` to view markdown
 - btop: `btop` to view system resources
+- exa: `exa` to list files (alternative to `ls`)
+- dust: `dust` to view disk usage
 
 ## ZSH Plugins
 
