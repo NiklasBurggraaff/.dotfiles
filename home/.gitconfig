@@ -2,9 +2,9 @@
 	email = niklasburggraaff@gmail.com
 	name = Niklas Burggraaff
 [include]
-	path = ~/.config/git/gitconfig/aliases.gitconfig
-	path = ~/.config/git/gitconfig/core.gitconfig
-	path = ~/.config/git/gitconfig/init.gitconfig
-	path = ~/.config/git/gitconfig/pull.gitconfig
+	path = ~/.config/git/aliases.gitconfig
+	path = ~/.config/git/core.gitconfig
+	path = ~/.config/git/init.gitconfig
+	path = ~/.config/git/pull.gitconfig
 [help]
 	autocorrect = 1
