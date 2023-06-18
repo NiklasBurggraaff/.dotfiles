@@ -24,7 +24,6 @@ Use `??` alias to view full README
 - `tree`: List files in tree format (depth 8)
 - `treea`: Tree of all files (depth 8)
 - `treel`: Tree of files with details (depth 8)
-- `z`: Use `zoxide` to jump to directory
 - `du`: List disk usage
 
 ## Tools

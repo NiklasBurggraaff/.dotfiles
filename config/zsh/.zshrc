@@ -14,6 +14,11 @@ source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $ZDOTDIR/plugins/fzf/fzf.zsh
 source $ZDOTDIR/plugins/alias-tips/alias-tips.plugin.zsh
 
+# Tools
+eval $(thefuck --alias)
+eval "$(zoxide init zsh)"
+
+
 # Powerlevel10k
 source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh

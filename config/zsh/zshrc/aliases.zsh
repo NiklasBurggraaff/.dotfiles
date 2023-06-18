@@ -44,9 +44,6 @@ fi
 # Disk utility
 alias du="dust"
 
-# Zoxide
-alias z="zoxide"
-
 # Neovim
 alias vim="nvim"
 alias vi="nvim"
