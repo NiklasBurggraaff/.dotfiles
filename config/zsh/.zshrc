@@ -15,7 +15,6 @@ source $ZDOTDIR/plugins/fzf/fzf.zsh
 source $ZDOTDIR/plugins/alias-tips/alias-tips.plugin.zsh
 
 # Tools
-eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
 
