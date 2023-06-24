@@ -4,6 +4,45 @@
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
+-- Copied from ThePrimeagen
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("i", "<C-c>", "<Esc>")
+
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndotree" })
+
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<leader>ps', function()
+	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
+-- Copy OS clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Keymaps for harpoon
+vim.keymap.set("n", "<leader>a", require("harpoon.mark").add_file)
+vim.keymap.set("n", "<C-h>", require("harpoon.ui").toggle_quick_menu)
+
+vim.keymap.set("n", "<C-j>", function() require("harpoon.ui").nav_file(1) end)
+vim.keymap.set("n", "<C-k>", function() require("harpoon.ui").nav_file(2) end)
+vim.keymap.set("n", "<C-l>", function() require("harpoon.ui").nav_file(3) end)
+vim.keymap.set("n", "<C-;>", function() require("harpoon.ui").nav_file(4) end)
+
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? \"gk\" : \"k\"", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? \"gj\" : \"j\"", { expr = true, silent = true })

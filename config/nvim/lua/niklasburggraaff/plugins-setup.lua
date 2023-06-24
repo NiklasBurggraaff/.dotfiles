@@ -106,6 +106,19 @@ require("lazy").setup({
     -- Fuzzy Finder (files, lsp, etc)
     { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
 
+    {
+        "mbbill/undotree",
+        cmd = "UndotreeToggle",
+        config = function()
+            vim.g.undotree_WindowLayout = 3
+            vim.g.undotree_SetFocusWhenToggle = 1
+            vim.g.undotree_ShortIndicators = 1
+        end
+    },
+
+    { "ThePrimeagen/harpoon" },
+    { "ThePrimeagen/vim-be-good" },
+
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
     -- Only load if `make` is available. Make sure you have the system
     -- requirements installed.
@@ -128,6 +141,10 @@ require("lazy").setup({
         },
         build = ":TSUpdate",
     },
+
+    { "github/copilot.vim" },
+
+    { "wakatime/vim-wakatime" },
 
     {
         "dstein64/vim-startuptime",
