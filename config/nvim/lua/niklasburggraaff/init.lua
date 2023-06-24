@@ -1,4 +1,5 @@
 require("niklasburggraaff.core")
+
 require("niklasburggraaff.options")
 require("niklasburggraaff.plugins-setup")
 require("niklasburggraaff.keymaps")
