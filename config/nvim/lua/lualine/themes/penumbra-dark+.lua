@@ -1,0 +1,42 @@
+local colors = {
+    -- fg     = '#abb2bf',
+    -- bg     = '#282c34',
+    -- gray1  = '#828997',
+    -- gray2  = '#2c323c',
+    -- gray3  = '#3e4452',
+    sunp    = "#FFFDFB",
+    sun     = "#FFF7ED",
+    sunm    = "#F2E6D4",
+    skyp    = "#CECECE",
+    sky     = "#9E9E9E",
+    skym    = "#636363",
+    shadep  = "#3E4044",
+    shade   = "#24272B",
+    shadem  = "#181B1F",
+    red     = "#df7f78",
+    orange  = "#ce9042",
+    yellow  = "#9ca748",
+    green   = "#50b584",
+    cyan    = "#00b3c2",
+    blue    = "#61a3e6",
+    purple  = "#a48fe1",
+    magenta = "#d080b6",
+}
+  
+return {
+    normal = {
+        a = { fg = colors.shade, bg = colors.green, gui = "bold" },
+        b = { fg = colors.sky, bg = colors.shadep },
+        c = { fg = colors.sky, bg = colors.shadem },
+    },
+    command  = { a = { fg = colors.shade, bg = colors.yellow, gui = "bold" } },
+    insert   = { a = { fg = colors.shade, bg = colors.blue,   gui = "bold" } },
+    visual   = { a = { fg = colors.shade, bg = colors.purple, gui = "bold" } },
+    terminal = { a = { fg = colors.shade, bg = colors.cyan,   gui = "bold" } },
+    replace  = { a = { fg = colors.shade, bg = colors.red,    gui = "bold" } },
+    inactive = {
+        a = { fg = colors.skym, bg = colors.shade, gui = "bold" },
+        b = { fg = colors.skym, bg = colors.shade },
+        c = { fg = colors.skym, bg = colors.shadem },
+    },
+}
