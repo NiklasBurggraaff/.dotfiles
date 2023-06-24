@@ -89,21 +89,12 @@ require("lazy").setup({
     },
 
     {
-        -- Theme inspired by Atom
-        "navarasu/onedark.nvim",
-        priority = 1000,
-        config = function()
-            vim.cmd.colorscheme "onedark"
-        end,
-    },
-
-    {
         -- Set lualine as statusline
         "nvim-lualine/lualine.nvim",
         -- See `:help lualine.txt`
         opts = {
             options = {
-                icons_enabled = false,
+                icons_enabled = true,
                 theme = "onedark",
                 component_separators = "|",
                 section_separators = "",
@@ -168,6 +159,8 @@ require("lazy").setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+vim.cmd.colorscheme "penumbra-dark+" -- Set colorscheme
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -176,11 +169,6 @@ vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = "a"
-
--- Sync clipboard between OS and Neovim.
---    Remove this option if you want your OS clipboard to remain independent.
---    See `:help "clipboard"`
-vim.o.clipboard = "unnamedplus"
 
 -- Enable break indent
 vim.o.breakindent = true
