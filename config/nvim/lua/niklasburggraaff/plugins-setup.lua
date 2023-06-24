@@ -137,6 +137,15 @@ require("lazy").setup({
         build = ":TSUpdate",
     },
 
+    {
+        "dstein64/vim-startuptime",
+        cmd = "StartupTime",
+        keys = { { "<leader>st", "<cmd>StartupTime<cr>", desc = "Show [S]tartup [T]ime" } },
+        config = function()
+            vim.g.startuptime_event_width = 60
+        end,
+    },
+        
     -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
     --             These are some example plugins that I"ve included in the kickstart repository.
     --             Uncomment any of the lines below to enable them.
