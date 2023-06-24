@@ -46,8 +46,6 @@ alias du="dust"
 
 # Neovim
 alias vim="nvim"
-alias vi="nvim"
-
 alias v="vim ."
 
 # Config files
