@@ -54,10 +54,10 @@ hi Cursor guifg=NONE guibg=#24272b gui=NONE cterm=NONE
 hi CursorColumn guifg=NONE guibg=#24272b gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#3e4044 gui=NONE cterm=NONE
 hi CursorLineNr guifg=NONE guibg=#3e4044 gui=bold cterm=bold
-hi DiffAdd guifg=#50b584 guibg=#3e4044 guisp=#50b584 gui=NONE cterm=NONE
-hi DiffChange guifg=#9ca748 guibg=#3e4044 guisp=#9ca748 gui=NONE cterm=NONE
-hi DiffDelete guifg=#df7f78 guibg=#3e4044 gui=bold cterm=bold
-hi DiffText guifg=#61a3e6 guibg=#3e4044 guisp=#61a3e6 gui=NONE cterm=NONE
+hi DiffAdd guifg=#50b584 guibg=#24272b guisp=#50b584 gui=NONE cterm=NONE
+hi DiffChange guifg=#9ca748 guibg=#24272b  guisp=#9ca748 gui=NONE cterm=NONE
+hi DiffDelete guifg=#df7f78 guibg=#24272b gui=bold cterm=bold
+hi DiffText guifg=#61a3e6 guibg=#24272b guisp=#61a3e6 gui=NONE cterm=NONE
 hi Directory guifg=#61a3e6 guibg=NONE gui=NONE cterm=NONE
 hi EndOfBuffer guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi ErrorMsg guifg=#df7f78 guibg=#24272b gui=reverse cterm=reverse
@@ -106,6 +106,16 @@ hi Underlined guifg=#a48fe1 guibg=NONE gui=NONE cterm=NONE
 hi CursorIM guifg=#24272b guibg=fg gui=NONE cterm=NONE
 hi ToolbarLine guifg=NONE guibg=#24272b gui=NONE cterm=NONE
 hi ToolbarButton guifg=#9e9e9e guibg=#24272b gui=bold cterm=bold
+
+hi DiagnosticError guifg=#df7f78
+hi DiagnosticWarn  guifg=#ce9042
+hi DiagnosticInfo  guifg=#00b3c2
+hi DiagnosticHint  guifg=#50b584
+
+" Make rainbow same as VSCode
+hi TSRainbowYellow guifg=#F9D749
+hi TSRainbowViolet guifg=#CC76D1
+hi TSRainbowBlue guifg=#4A9DF8
 
 " Background: dark
 " Color: sunplus       rgb(255, 253, 251)        231         White

@@ -12,6 +12,33 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- lsp_symbols = {
+--     Error=" ",
+--     Info=" ",
+--     Warn=" ",
+--     Hint="",
+-- },
+-- local num_icons = {"➊ ", "❷ ", "➌ ", "➍ ", "➎ ", "➏ ", "➐ ", "➑ ", "➒ ", " "}
+local mode_map = {
+    ["NORMAL"] = " ",
+    ["O-PENDING"] = "N?",
+    ["INSERT"] = " ",
+    ["VISUAL"] = " ",
+    ["V-BLOCK"] = "VB",
+    ["V-LINE"] = "VL",
+    ["V-REPLACE"] = "VR",
+    ["REPLACE"] = "R ",
+    ["COMMAND"] = " ",
+    ["SHELL"] = " ",
+    ["TERMINAL"] = " ",
+    ["EX"] = "X ",
+    ["S-BLOCK"] = "SB",
+    ["S-LINE"] = "SL",
+    ["SELECT"] = "S ",
+    ["CONFIRM"] = "Y?",
+    ["MORE"] = "M ",
+}
+
 -- NOTE: Here is where you install your plugins.
 --    You can configure plugins using the `config` key.
 --
@@ -19,6 +46,18 @@ vim.opt.rtp:prepend(lazypath)
 --        as they will be available in your neovim runtime.
 require("lazy").setup({
     -- NOTE: First, some plugins that don"t require any configuration
+
+    "nvim-lua/plenary.nvim",
+
+    {
+        "prichrd/netrw.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        opts = {
+            use_devicons = true,
+        },
+    },
 
     -- Git related plugins
     "tpope/vim-fugitive",
@@ -34,7 +73,15 @@ require("lazy").setup({
         "neovim/nvim-lspconfig",
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
-            { "williamboman/mason.nvim", config = true },
+            {
+                "williamboman/mason.nvim",
+                config = true,
+                opts = {
+                    ui = {
+                        border = "rounded",
+                    }
+                }
+            },
             "williamboman/mason-lspconfig.nvim",
 
             -- Useful status updates for LSP
@@ -43,6 +90,18 @@ require("lazy").setup({
 
             -- Additional lua configuration, makes nvim stuff amazing!
             "folke/neodev.nvim",
+        },
+    },
+    {
+        "folke/trouble.nvim",
+        opts = {
+            signs = {
+                error = " ",
+                warning = " ",
+                hint = " ",
+                information = " ",
+                other = " ",
+            },
         },
     },
 
@@ -62,8 +121,22 @@ require("lazy").setup({
         },
     },
 
+    {
+        "glepnir/dashboard-nvim",
+        event = "VimEnter",
+        config = function()
+            require("dashboard").setup {
+                -- config
+            }
+        end,
+        dependencies = { { "nvim-tree/nvim-web-devicons" } }
+    },
+
     -- Useful plugin to show you pending keybinds.
-    { "folke/which-key.nvim", opts = {} },
+    {
+        "folke/which-key.nvim",
+        opts = {}
+    },
     {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
         "lewis6991/gitsigns.nvim",
@@ -75,13 +148,17 @@ require("lazy").setup({
                 delete = { text = "_" },
                 topdelete = { text = "‾" },
                 changedelete = { text = "~" },
+                untracked = { text = "|" },
             },
             on_attach = function(bufnr)
                 -- NOTE: Useful
-                vim.keymap.set("n", "<leader>gp", require("gitsigns").prev_hunk, { buffer = bufnr, desc = "[G]o to [P]revious Hunk" })
-                vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "[G]o to [N]ext Hunk" })
+                vim.keymap.set("n", "<leader>gp", require("gitsigns").prev_hunk,
+                    { buffer = bufnr, desc = "[G]o to [P]revious Hunk" })
+                vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk,
+                    { buffer = bufnr, desc = "[G]o to [N]ext Hunk" })
                 -- TODO: Change?
-                vim.keymap.set("n", "<leader>ph", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "[P]review [H]unk" })
+                vim.keymap.set("n", "<leader>ph", require("gitsigns").preview_hunk,
+                    { buffer = bufnr, desc = "[P]review [H]unk" })
             end,
         },
     },
@@ -97,27 +174,47 @@ require("lazy").setup({
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
             },
+            sections = {
+                lualine_a = { { "mode", fmt = function(s) return mode_map[s] or s end } },
+                lualine_b = { "branch", "diff", "diagnostics" },
+                lualine_c = { "filename" },
+                lualine_x = { "encoding", "fileformat", "filetype" },
+                lualine_y = { "progress" },
+                lualine_z = { "location" },
+            },
+            inactive_sections = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = { "filename" },
+                lualine_x = { "location" },
+                lualine_y = {},
+                lualine_z = {}
+            },
         },
     },
 
-    -- "gc" to comment visual regions/lines
-    { "numToStr/Comment.nvim", opts = {} },
-
-    -- Fuzzy Finder (files, lsp, etc)
-    { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
-
     {
-        "mbbill/undotree",
-        cmd = "UndotreeToggle",
-        config = function()
-            vim.g.undotree_WindowLayout = 3
-            vim.g.undotree_SetFocusWhenToggle = 1
-            vim.g.undotree_ShortIndicators = 1
-        end
+        "gelguy/wilder.nvim",
+        opts = {
+            modes = { ":", "/", "?" },
+        }
     },
 
-    { "ThePrimeagen/harpoon" },
-    { "ThePrimeagen/vim-be-good" },
+    {
+        "dstein64/nvim-scrollview",
+        opts = {
+            signs_column = -2,
+        },
+    },
+
+    -- Fuzzy Finder (files, lsp, etc)
+    {
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        }
+    },
 
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
     -- Only load if `make` is available. Make sure you have the system
@@ -133,25 +230,74 @@ require("lazy").setup({
     },
 
     {
+        "mbbill/undotree",
+        cmd = "UndotreeToggle",
+        config = function()
+            vim.g.undotree_WindowLayout = 4
+            vim.g.undotree_SetFocusWhenToggle = 1
+            vim.g.undotree_ShortIndicators = 1
+        end
+    },
+
+    "ThePrimeagen/harpoon",
+
+    {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             "nvim-treesitter/nvim-treesitter-context",
+            "nvim-treesitter/playground",
         },
         build = ":TSUpdate",
     },
 
-    { "github/copilot.vim" },
+    -- "gc" to comment visual regions/lines
+    {
+        "numToStr/Comment.nvim",
+        opts = {}
+    },
 
-    { "wakatime/vim-wakatime" },
+    "ThePrimeagen/refactoring.nvim",
+
+    {
+        "m4xshen/smartcolumn.nvim",
+        opts = {
+            colorcolumn = "80",
+            disabled_filetypes = { "help", "netrw", "lazy", "mason", "undotree", "text" },
+            custom_colorcolumn = {},
+            scope = "file",
+        }
+    },
+
+    "HiPhish/nvim-ts-rainbow2",
+
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {} -- this is equalent to setup({}) function
+    },
+    "windwp/nvim-ts-autotag",
+
+    -- Colorizers
+    {
+        "NvChad/nvim-colorizer.lua",
+        opts = {}
+    },
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+
+    "ThePrimeagen/vim-be-good",
+
+    "github/copilot.vim",
+
+    "wakatime/vim-wakatime",
 
     {
         "dstein64/vim-startuptime",
         cmd = "StartupTime",
         keys = { { "<leader>st", "<cmd>StartupTime<cr>", desc = "Show [S]tartup [T]ime" } },
         config = function()
-            vim.g.startuptime_event_width = 60
+            vim.g.startuptime_event_width = 64
         end,
     },
 
@@ -167,4 +313,8 @@ require("lazy").setup({
     --
     --        For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
     { import = "custom.plugins" },
-}, {})
+}, {
+    ui = {
+        border = "rounded",
+    },
+})

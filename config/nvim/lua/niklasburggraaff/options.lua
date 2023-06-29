@@ -16,15 +16,15 @@ vim.wo.relativenumber = true
 vim.o.mouse = "a"
 
 -- Tabs and indentation
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
 
 -- Save undo history
 vim.o.undofile = true
+
+vim.o.swapfile = false
+vim.o.backup = false
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -33,17 +33,11 @@ vim.o.smartcase = true
 -- Ensure lines below and above cursor
 vim.o.scrolloff = 8
 
--- Add column
-vim.o.colorcolumn = "80"
-
 -- Keep signcolumn on by default
-vim.wo.signcolumn = "yes:2"
+vim.wo.signcolumn = "yes"
 
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
-
--- Consider - part of a word
-vim.opt.iskeyword:append("-")
 
 -- Decrease update time
 vim.o.updatetime = 50

@@ -62,4 +62,18 @@ require("nvim-treesitter.configs").setup {
         --     },
         -- },
     },
+    rainbow = {
+        enable = true,
+        -- Make same as VSCode
+        strategy = require("ts-rainbow").strategy["local"],
+        hlgroups = {
+            'TSRainbowYellow',
+            'TSRainbowViolet',
+            'TSRainbowBlue',
+            -- 'TSRainbowRed',
+            -- 'TSRainbowOrange',
+            -- 'TSRainbowGreen',
+            -- 'TSRainbowCyan'
+        },
+    },
 }

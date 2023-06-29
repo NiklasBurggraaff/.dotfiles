@@ -1,18 +1,13 @@
 local colors = {
-    -- fg     = '#abb2bf',
-    -- bg     = '#282c34',
-    -- gray1  = '#828997',
-    -- gray2  = '#2c323c',
-    -- gray3  = '#3e4452',
-    sunp    = "#FFFDFB",
-    sun     = "#FFF7ED",
-    sunm    = "#F2E6D4",
-    skyp    = "#CECECE",
-    sky     = "#9E9E9E",
+    sunp    = "#fffdfb",
+    sun     = "#fff7ed",
+    sunm    = "#f2e6d4",
+    skyp    = "#cecece",
+    sky     = "#9e9e9e",
     skym    = "#636363",
-    shadep  = "#3E4044",
-    shade   = "#24272B",
-    shadem  = "#181B1F",
+    shadep  = "#3e4044",
+    shade   = "#24272b",
+    shadem  = "#181b1f",
     red     = "#df7f78",
     orange  = "#ce9042",
     yellow  = "#9ca748",
@@ -22,7 +17,7 @@ local colors = {
     purple  = "#a48fe1",
     magenta = "#d080b6",
 }
-  
+
 return {
     normal = {
         a = { fg = colors.shade, bg = colors.green, gui = "bold" },

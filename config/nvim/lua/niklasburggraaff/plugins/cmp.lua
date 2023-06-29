@@ -26,8 +26,14 @@ cmp.setup {
         { name = "nvim_lsp" },
         { name = "luasnip" },
     },
+    window = {
+        completion = {
+            border = "rounded",
+            scrolloff = 2,
+        },
+        documentation = {
+            border = "rounded",
+            scrolloff = 2,
+        },
+    },
 }
-
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
