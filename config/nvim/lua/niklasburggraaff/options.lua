@@ -4,6 +4,10 @@
 
 vim.cmd.colorscheme("penumbra-dark+") -- Set colorscheme
 
+vim.g.gitblame_enabled = 0
+
+vim.o.tabstop = 4
+
 -- Set highlight on search
 vim.o.hlsearch = false
 vim.o.incsearch = true

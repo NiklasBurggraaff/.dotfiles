@@ -117,6 +117,12 @@ hi TSRainbowYellow guifg=#F9D749
 hi TSRainbowViolet guifg=#CC76D1
 hi TSRainbowBlue guifg=#4A9DF8
 
+hi HarpoonInactive guibg=#181b1f guifg=#636363
+hi HarpoonActive guibg=NONE guifg=#9e9e9e
+hi HarpoonNumberActive guibg=NONE guifg=#cecece
+hi HarpoonNumberInactive guibg=#181b1f guifg=#636363
+hi TabLineFill guibg=#181b1f guifg=NONE
+
 " Background: dark
 " Color: sunplus       rgb(255, 253, 251)        231         White
 " Color: sun           rgb(255, 247, 237)        255         LightGray
