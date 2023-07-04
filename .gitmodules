@@ -8,14 +8,14 @@
 [submodule "config/zsh/plugins/zsh-completions"]
 	path = config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
-[submodule "config/zsh/plugins/zsh-syntax-highlighting"]
-	path = config/zsh/plugins/zsh-syntax-highlighting
+[submodule "config/zsh/oh-my-zsh/zsh-syntax-highlighting"]
+	path = config/zsh/oh-my-zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule "config/zsh/plugins/zsh-autosuggestions"]
-	path = config/zsh/plugins/zsh-autosuggestions
+[submodule "config/zsh/oh-my-zsh/zsh-autosuggestions"]
+	path = config/zsh/oh-my-zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "config/zsh/plugins/alias-tips"]
-	path = config/zsh/plugins/alias-tips
+[submodule "config/zsh/oh-my-zsh/alias-tips"]
+	path = config/zsh/oh-my-zsh/alias-tips
 	url = https://github.com/djui/alias-tips.git
 [submodule "config/tmux/plugins/tpm"]
 	path = config/tmux/plugins/tpm
