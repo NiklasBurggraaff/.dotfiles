@@ -34,11 +34,9 @@ bindkey -M menuselect '^zr' redo                           # Redo
 
 # Paste using Ctrl + v
 _paste-copy-using-xsel() {
-	if [[ "${OS}" == "Linux" ]]
-	then
+	if [[ "${OS}" == "linux" ]]; then
 		LBUFFER+="$(xsel -b -o)"
-	elif [[ "${OS}" == "Darwin" ]]
-	then
+	elif [[ "${OS}" == "mac" ]]; then
 		LBUFFER+="$(pbpaste)"
 	else
 		abort "Not supported OS: ${OS}"

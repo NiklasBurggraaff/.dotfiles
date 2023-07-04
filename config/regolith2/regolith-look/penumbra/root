@@ -1,0 +1,108 @@
+! --------------------------------------------
+! -- This file is in the Xresource file format
+! --------------------------------------------
+
+! --------------------------------------------
+! -- Look name
+! --------------------------------------------
+
+regolith.look: penumbra
+
+! --------------------------------------------
+! -- Theme elements
+! --------------------------------------------
+
+gtk.theme_name: Adwaita-dark
+gtk.icon_theme_name: hicolor
+
+! --------------------------------------------
+! -- Fonts
+! --------------------------------------------
+
+#define gtk_font_name Bitstream Vera Sans 11
+#define gtk_document_font_name Sans 11
+#define gtk_monospace_font_name JetBrainsMono Nerd Font 12
+
+gtk.font_name: gtk_font_name
+gtk.document_font_name: gtk_document_font_name
+gtk.monospace_font_name: gtk_monospace_font_name
+
+! --------------------------------------------
+! -- Colors
+! --------------------------------------------
+
+! -- Darker, dark to light gradients
+#define color_dark_3   #181B1F
+#define color_dark_2   #24272B
+#define color_dark_1   #3E4044
+
+! -- Light gradients
+#define color_light_3   #9E9E9E
+#define color_light_2   #CECECE
+#define color_light_1   #FFF7ED
+
+! -- Palette 
+#define color_red      #DF7F78
+#define color_orange   #CE9042
+#define color_yellow   #9CA748
+#define color_green    #50B584
+#define color_cyan     #00B3C2
+#define color_blue     #61A3E6
+#define color_purple   #A48FE1
+#define color_magenta  #D080B6
+
+! --------------------------------------------
+! -- Wallpaper 
+! --------------------------------------------
+
+! -- Specify either a complete file path to an image
+! -- and (optionally) options how to display the file
+
+regolith.wallpaper.file:
+regolith.wallpaper.options:
+
+!-- *Or* specify a color
+
+regolith.wallpaper.color.primary: color_dark_2
+
+!-- If specifying a primary color, optional additional settings
+
+regolith.wallpaper.color.secondary: color_dark_1
+regolith.wallpaper.color.shading.type: vertical
+
+! --------------------------------------------
+! -- Lockscreen Wallpaper 
+! --------------------------------------------
+
+!-- the following keys can be set to specify the lockscreen background, as above with desktop wallpaper
+
+! -- Specify either a complete file path to an image
+! -- and (optionally) options how to display the file
+
+regolith.lockscreen.wallpaper.file:
+regolith.lockscreen.wallpaper.options:
+
+!-- *Or* specify a color
+
+regolith.lockscreen.wallpaper.color.primary: #323A4C
+
+!-- If specifying a primary color, optional additional settings
+
+regolith.lockscreen.wallpaper.color.secondary:
+regolith.lockscreen.wallpaper.color.shading.type:
+
+! --------------------------------------------
+! -- Component resources
+! --------------------------------------------
+
+#include "/usr/share/regolith-look/penumbra/i3xrocks"
+#include "/usr/share/regolith-look/penumbra/i3-wm"
+#include "/usr/share/regolith-look/penumbra/gnome-terminal"
+
+! --------------------------------------------
+! -- Loader Path - Path to script responsible 
+! -- for configuring UI from Xres values
+! -- NOTE: The following script path can be changed to support alternative look configurations
+! --------------------------------------------
+
+regolith.look.loader: /usr/share/regolith-look/default_loader.sh

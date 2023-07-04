@@ -1,10 +1,4 @@
-# if running zsh
-if [ -n "$ZSH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.zshrc" ]; then
-	. "$HOME/.zshrc"
-    fi
-fi
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -15,6 +9,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
