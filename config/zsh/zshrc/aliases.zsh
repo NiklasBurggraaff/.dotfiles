@@ -49,12 +49,13 @@ alias vim="nvim"
 alias v="vim ."
 
 # Config files
+alias zshconf="(cd $ZDOTDIR && vim .)"
 alias zenvconf="vim ~/.zshenv"
-alias zshconf="vim $ZDOTDIR/.zshrc"
 alias zprofileconf="vim $ZDOTDIR/.zprofile"
 alias terminatorconf="vim ~/.config/terminator/config"
 alias gitconf="vim ~/.gitconfig"
 alias tmuxconf="vim ~/.config/tmux/tmux.conf"
+alias nvimconf="(cd $XDG_CONFIG_HOME/nvim && vim .)"
 
 # Source config files
 alias zshs="source $ZDOTDIR/.zshrc"
