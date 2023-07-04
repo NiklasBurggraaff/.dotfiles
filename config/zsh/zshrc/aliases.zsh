@@ -35,6 +35,9 @@ alias treel="tree -l"
 alias treela="tree -la"
 alias treeal="tree -al"
 
+# Use trash instead of rm
+alias rm="trash"
+
 # Linux open
 if [[ "${OS}" == "Linux" ]]
 then
@@ -52,9 +55,9 @@ alias v="vim ."
 alias zshconf="(cd $ZDOTDIR && vim .)"
 alias zenvconf="vim ~/.zshenv"
 alias zprofileconf="vim $ZDOTDIR/.zprofile"
-alias terminatorconf="vim ~/.config/terminator/config"
-alias gitconf="vim ~/.gitconfig"
-alias tmuxconf="vim ~/.config/tmux/tmux.conf"
+alias terminatorconf="(cd $XDG_CONFIG_HOME/terminator && vim .)"
+alias gitconf="(cd $XDG_CONFIG_HOME/git && vim .)"
+alias tmuxconf="(cd $XDG_CONFIG_HOME/tmux && vim .)"
 alias nvimconf="(cd $XDG_CONFIG_HOME/nvim && vim .)"
 
 # Source config files

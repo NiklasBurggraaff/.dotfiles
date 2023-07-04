@@ -9,10 +9,7 @@ fi
 
 # Plugins
 source $ZDOTDIR/plugins/completion.zsh
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $ZDOTDIR/plugins/fzf/fzf.zsh
-source $ZDOTDIR/plugins/alias-tips/alias-tips.plugin.zsh
 
 # Tools
 eval "$(zoxide init zsh)"
@@ -24,10 +21,19 @@ source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
 
 # Source all FUNCTIONS in functions folder
 for f in $ZDOTDIR/functions/*; do source $f; done
+unset f
 
 # Source all SCRIPTS in zshrc folder
 for f in $ZDOTDIR/zshrc/*; do source $f; done
+unset f
 
+# Load all of the plugins that were defined in ~/.zshrc
+for plugin in $ZDOTDIR/oh-my-zsh/*
+do
+  local plugin_name=$(basename $plugin)
+  source $ZDOTDIR/oh-my-zsh/$plugin_name/$plugin_name.plugin.zsh
+done
+unset plugin
 
 
 # History
