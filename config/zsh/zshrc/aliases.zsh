@@ -15,7 +15,7 @@ alias zsh-menu-keybinds="bindkey -M menuselect"
 alias sudo="nocorrect sudo -E "
 
 # tmux sessionizer
-alias t="~/.tmux/tmux-sessionizer.bash"
+# alias t="~/.tmux/tmux-sessionizer.bash"
 
 # List files
 alias ls="lsd"
@@ -77,3 +77,11 @@ alias xh="xrandr --output HDMI-2 --auto --left-of eDP-1"
 alias xj="xrandr --output HDMI-2 --auto --below eDP-1"
 alias xk="xrandr --output HDMI-2 --auto --above eDP-1"
 alias xx="xrandr --output HDMI-2 --off && xrandr --output eDP-1 --auto"
+
+# tmux
+alias ta="tmux attach -t"
+alias tad="tmux attach -d -t"
+alias ts="tmux new-session -s"
+alias tl="tmux list-sessions"
+alias tksv="tmux kill-server"
+alias tkss="tmux kill-session -t"
