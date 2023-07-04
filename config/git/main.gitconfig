@@ -2,10 +2,9 @@
 	email = niklasburggraaff@gmail.com
 	name = Niklas Burggraaff
 [include]
-	path = ~/.config/git/aliases.gitconfig
 	path = ~/.config/git/commands.gitconfig
 [help]
 	autocorrect = 1
 [core]
 	autocrlf = input
-	editor = vim
+	editor = nvim

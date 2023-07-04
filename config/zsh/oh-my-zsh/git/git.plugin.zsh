@@ -72,15 +72,13 @@ function git_develop_branch() {
 # (sorted alphabetically)
 #
 
-alias g='git'
-
 alias ga='git add'
 alias gaa='git add --all'
-alias gapa='git add --patch'
+alias gapj='git add --patch'
 alias gau='git add --update'
 alias gav='git add --verbose'
-alias gap='git apply'
-alias gapt='git apply --3way'
+alias gapp='git apply'
+alias gappt='git apply --3way'
 
 alias gb='git branch'
 alias gba='git branch --all'
@@ -175,7 +173,7 @@ function ggfl() {
 }
 compdef _git ggfl=git-checkout
 
-function ggl() {
+function ggj() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
     git pull origin "${*}"
   else
@@ -183,9 +181,9 @@ function ggl() {
     git pull origin "${b:=$1}"
   fi
 }
-compdef _git ggl=git-checkout
+compdef _git ggj=git-checkout
 
-function ggp() {
+function ggk() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
     git push origin "${*}"
   else
@@ -193,13 +191,13 @@ function ggp() {
     git push origin "${b:=$1}"
   fi
 }
-compdef _git ggp=git-checkout
+compdef _git ggk=git-checkout
 
 function ggpnp() {
   if [[ "$#" == 0 ]]; then
-    ggl && ggp
+    ggj && ggk
   else
-    ggl "${*}" && ggp "${*}"
+    ggj "${*}" && ggk "${*}"
   fi
 }
 compdef _git ggpnp=git-checkout
@@ -215,10 +213,10 @@ alias ggpull='git pull origin "$(git_current_branch)"'
 alias ggpush='git push origin "$(git_current_branch)"'
 
 alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
-alias gpsup='git push --set-upstream origin $(git_current_branch)'
+alias gksup='git push --set-upstream origin $(git_current_branch)'
 is-at-least 2.30 "$git_version" \
-  && alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes' \
-  || alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease'
+  && alias gksupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes' \
+  || alias gksupf='git push --set-upstream origin $(git_current_branch) --force-with-lease'
 
 alias ghh='git help'
 
@@ -229,21 +227,21 @@ alias git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch
 alias gk='\gitk --all --branches &!'
 alias gke='\gitk --all $(git log --walk-reflogs --pretty=%h) &!'
 
-alias gl='git pull'
-alias glg='git log --stat'
-alias glgp='git log --stat --patch'
-alias glgg='git log --graph'
-alias glgga='git log --graph --decorate --all'
-alias glgm='git log --graph --max-count=10'
-alias glo='git log --oneline --decorate'
-alias glol="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
-alias glols="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat"
-alias glod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
-alias glods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
-alias glola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all"
-alias glog='git log --oneline --decorate --graph'
-alias gloga='git log --oneline --decorate --graph --all'
-alias glp="_git_log_prettily"
+alias gj='git pull'
+alias gjg='git log --stat'
+alias gjgp='git log --stat --patch'
+alias gjgg='git log --graph'
+alias gjgga='git log --graph --decorate --all'
+alias gjgm='git log --graph --max-count=10'
+alias gjo='git log --oneline --decorate'
+alias gjol="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias gjols="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat"
+alias gjod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
+alias gjods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+alias gjola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all"
+alias gjog='git log --oneline --decorate --graph'
+alias gjoga='git log --oneline --decorate --graph --all'
+alias gjp="_git_log_prettily"
 
 alias gm='git merge'
 alias gmom='git merge origin/$(git_main_branch)'
@@ -253,17 +251,17 @@ alias gmum='git merge upstream/$(git_main_branch)'
 alias gma='git merge --abort'
 alias gms="git merge --squash"
 
-alias gp='git push'
-alias gpd='git push --dry-run'
+alias gk='git push'
+alias gkd='git push --dry-run'
 is-at-least 2.30 "$git_version" \
-  && alias gpf='git push --force-with-lease --force-if-includes' \
-  || alias gpf='git push --force-with-lease'
-alias gpf!='git push --force'
-alias gpoat='git push origin --all && git push origin --tags'
-alias gpod='git push origin --delete'
-alias gpr='git pull --rebase'
-alias gpu='git push upstream'
-alias gpv='git push --verbose'
+  && alias gkf='git push --force-with-lease --force-if-includes' \
+  || alias gkf='git push --force-with-lease'
+alias gkf!='git push --force'
+alias gkoat='git push origin --all && git push origin --tags'
+alias gkod='git push origin --delete'
+alias gkr='git pull --rebase'
+alias gku='git push upstream'
+alias gkv='git push --verbose'
 
 alias gr='git remote'
 alias gra='git remote add'
@@ -293,6 +291,7 @@ alias gru='git reset --'
 alias grup='git remote update'
 alias grv='git remote --verbose'
 
+alias gs='gsb'
 alias gsb='git status --short --branch'
 alias gsd='git svn dcommit'
 alias gsh='git show'
@@ -327,14 +326,15 @@ alias gtl='gtl(){ git tag --sort=-v:refname -n --list "${1}*" }; noglob gtl'
 
 alias gunignore='git update-index --no-assume-unchanged'
 alias gunwip='git rev-list --max-count=1 --format="%s" HEAD | grep -q "\--wip--" && git reset HEAD~1'
+alias gundo='git reset HEAD~1'
 alias gup='git pull --rebase'
 alias gupv='git pull --rebase --verbose'
 alias gupa='git pull --rebase --autostash'
 alias gupav='git pull --rebase --autostash --verbose'
 alias gupom='git pull --rebase origin $(git_main_branch)'
 alias gupomi='git pull --rebase=interactive origin $(git_main_branch)'
-alias glum='git pull upstream $(git_main_branch)'
-alias gluc='git pull upstream $(git_current_branch)'
+alias gjum='git pull upstream $(git_main_branch)'
+alias gjuc='git pull upstream $(git_current_branch)'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign --message "--wip-- [skip ci]"'
