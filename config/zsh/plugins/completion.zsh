@@ -19,7 +19,12 @@ fpath=($DOTFILES/zsh/plugins/zsh-completions/src $fpath)
 # Should be called before compinit
 zmodload zsh/complist
 
-autoload -U compinit && compinit -d "${XDG_CACHE_HOME:-${HOME}}/zsh/.zcompdump-${HOST}"
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit -d "${XDG_CACHE_HOME:-${HOME}}/zsh/.zcompdump-${HOST}";
+else
+	compinit -C -d "${XDG_CACHE_HOME:-${HOME}}/zsh/.zcompdump-${HOST}";
+fi;
 
 _comp_options+=(globdots) # With hidden files
 
