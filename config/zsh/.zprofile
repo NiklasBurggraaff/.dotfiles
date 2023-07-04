@@ -1,4 +1,5 @@
-source $HOME/.config/zsh/zprofile/macos.zsh
-
-# Added by Toolbox App
-export PATH="$PATH:/usr/local/bin"
+if [[ $OS == "Darwin" ]]; then
+  source $HOME/.config/zsh/zprofile/macos.zsh
+elif [[ $OS == "Linux" ]]; then
+  source $HOME/.config/zsh/zprofile/ubuntu.zsh
+fi

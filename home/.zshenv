@@ -12,4 +12,10 @@ export VISUAL="nvim"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 source $ZDOTDIR/.zshenv
 
-export OS="$(uname)"
+if [[ $(uname) == "Darwin" ]]; then
+  export OS="mac"
+elif [[ $(uname) == "Linux" ]]; then
+  export OS="linux"
+else
+  export OS="unknown"
+fi

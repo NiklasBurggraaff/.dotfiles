@@ -53,8 +53,18 @@ alias v="vim ."
 
 # Config files
 alias zshconf="(cd $ZDOTDIR && vim .)"
-alias zenvconf="vim ~/.zshenv"
-alias zprofileconf="vim $ZDOTDIR/.zprofile"
+alias zshrcconf="(cd $ZDOTDIR && vim .zshrc)"
+alias zshenvconf="(cd $ZDOTDIR && vim .zshenv)"
+alias zprofileconf="(cd $ZDOTDIR && vim .zprofile)"
+function zprofileconf() {
+  if [[ $OS == "mac" ]]; then
+    (cd $ZDOTDIR && vim zprofile/macos.zsh)
+  elif [[ $OS == "linux" ]]; then
+    (cd $ZDOTDIR && vim zprofile/ubuntu.zsh)
+  else
+    abort "Not supported OS: ${OS}"
+  fi
+}
 alias terminatorconf="(cd $XDG_CONFIG_HOME/terminator && vim .)"
 alias gitconf="(cd $XDG_CONFIG_HOME/git && vim .)"
 alias tmuxconf="(cd $XDG_CONFIG_HOME/tmux && vim .)"

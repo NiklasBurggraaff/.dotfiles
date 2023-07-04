@@ -4,3 +4,6 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Added by Toolbox App
+export PATH="$PATH:/usr/local/bin"
