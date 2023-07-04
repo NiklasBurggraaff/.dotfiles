@@ -17,3 +17,6 @@
 [submodule "config/zsh/plugins/alias-tips"]
 	path = config/zsh/plugins/alias-tips
 	url = https://github.com/djui/alias-tips.git
+[submodule "config/tmux/plugins/tpm"]
+	path = config/tmux/plugins/tpm
+	url = https://git::@github.com/tmux-plugins/tpm
