@@ -12,13 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- lsp_symbols = {
---     Error=" ",
---     Info=" ",
---     Warn=" ",
---     Hint="",
--- },
--- local num_icons = {"➊ ", "❷ ", "➌ ", "➍ ", "➎ ", "➏ ", "➐ ", "➑ ", "➒ ", " "}
 local mode_map = {
     ["NORMAL"] = " ",
     ["O-PENDING"] = "N?",
@@ -61,14 +54,7 @@ local function shorten_filenames(filenames)
     return shortened
 end
 
--- NOTE: Here is where you install your plugins.
---    You can configure plugins using the `config` key.
---
---    You can also configure plugins after the setup call,
---        as they will be available in your neovim runtime.
 require("lazy").setup({
-    -- NOTE: First, some plugins that don"t require any configuration
-
     -- Lua utilities
     "nvim-lua/plenary.nvim",
 
@@ -134,6 +120,9 @@ require("lazy").setup({
         },
     },
 
+    -- Notifications
+    "rcarriga/nvim-notify",
+
     -- Git related plugins
     "tpope/vim-fugitive",
     "tpope/vim-rhubarb",
@@ -151,14 +140,12 @@ require("lazy").setup({
                 untracked = { text = "|" },
             },
             on_attach = function(bufnr)
-                -- NOTE: Useful
                 vim.keymap.set("n", "<leader>gp", require("gitsigns").prev_hunk,
-                    { buffer = bufnr, desc = "[G]o to [P]revious Hunk" })
+                    { buffer = bufnr, desc = "[G]it go to [P]revious Hunk" })
                 vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk,
-                    { buffer = bufnr, desc = "[G]o to [N]ext Hunk" })
-                -- TODO: Change?
-                vim.keymap.set("n", "<leader>ph", require("gitsigns").preview_hunk,
-                    { buffer = bufnr, desc = "[P]review [H]unk" })
+                    { buffer = bufnr, desc = "[G]it go to [N]ext Hunk" })
+                vim.keymap.set("n", "<leader>gh", require("gitsigns").preview_hunk,
+                    { buffer = bufnr, desc = "[G]it preview [H]unk" })
             end,
         },
     },
@@ -171,8 +158,6 @@ require("lazy").setup({
     -- Fix tabs and spaces
     { "tenxsoydev/tabs-vs-spaces.nvim", config = true },
 
-    -- NOTE: This is where your plugins related to LSP can be installed.
-    --  The configuration is done below. Search for lspconfig to find it below.
     {
         -- LSP Configuration & Plugins
         "neovim/nvim-lspconfig",
@@ -190,7 +175,6 @@ require("lazy").setup({
             "williamboman/mason-lspconfig.nvim",
 
             -- Useful status updates for LSP
-            -- NOTE: `opts = {}` is the same as calling `require("fidget").setup({})`
             { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
@@ -240,25 +224,17 @@ require("lazy").setup({
         }
     },
 
+    -- Easier macros
+    {
+        "chrisgrieser/nvim-recorder",
+        opts = {},
+    },
+
     -- Add scrollbar
     {
         "dstein64/nvim-scrollview",
         opts = {
             signs_column = -2,
-        },
-    },
-    {
-        "declancm/cinnamon.nvim",
-        opts = {
-            -- KEYMAPS:
-            default_keymaps = true, -- Create default keymaps.
-            extra_keymaps = true, -- Create extra keymaps.
-            extended_keymaps = false, -- Create extended keymaps.
-            override_keymaps = false, -- The plugin keymaps will override any existing keymaps.
-
-            -- OPTIONS:
-            default_delay = 3,
-            scroll_limit = 32,
         },
     },
 
@@ -273,8 +249,6 @@ require("lazy").setup({
     -- requirements installed.
     {
         "nvim-telescope/telescope-fzf-native.nvim",
-        -- NOTE: If you are having trouble with this installation,
-        --             refer to the README for telescope-fzf-native for more instructions.
         build = "make",
         cond = function()
             return vim.fn.executable "make" == 1
@@ -301,6 +275,15 @@ require("lazy").setup({
             "nvim-treesitter/playground",
         },
         build = ":TSUpdate",
+    },
+
+    -- Markdown preview
+    {
+        "ellisonleao/glow.nvim",
+        config = {
+            border = "rounded",
+        },
+        cmd = "Glow"
     },
 
     -- Comments

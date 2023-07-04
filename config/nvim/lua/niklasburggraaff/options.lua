@@ -1,16 +1,12 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
-vim.cmd.colorscheme("penumbra-dark+") -- Set colorscheme
+-- Set color scheme
+vim.cmd.colorscheme("penumbra-dark+")
+vim.o.termguicolors = true
 
-vim.g.gitblame_enabled = 0
-
-vim.o.tabstop = 4
-
--- Set highlight on search
-vim.o.hlsearch = false
-vim.o.incsearch = true
+-- Only have one status line
+vim.opt.laststatus = 3
 
 -- Make relative line numbers default
 vim.wo.number = true
@@ -20,19 +16,24 @@ vim.wo.relativenumber = true
 vim.o.mouse = "a"
 
 -- Tabs and indentation
+vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
 
--- Save undo history
-vim.o.undofile = true
-
-vim.o.swapfile = false
-vim.o.backup = false
-
+-- Set highlight on search
+vim.o.hlsearch = false
+vim.o.incsearch = true
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
+
+-- Save undo history
+vim.o.undofile = true
+
+-- Don't save backup and swap files
+vim.o.swapfile = false
+vim.o.backup = false
 
 -- Ensure lines below and above cursor
 vim.o.scrolloff = 8
@@ -55,5 +56,5 @@ vim.o.completeopt = "menuone,noselect"
 vim.o.splitright = true
 vim.o.splitbelow = true
 
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
+-- Plugins
+vim.g.gitblame_enabled = 0

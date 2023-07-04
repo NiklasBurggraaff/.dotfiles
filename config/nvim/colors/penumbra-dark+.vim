@@ -109,7 +109,7 @@ hi ToolbarButton guifg=#9e9e9e guibg=#24272b gui=bold cterm=bold
 
 hi DiagnosticError guifg=#df7f78
 hi DiagnosticWarn  guifg=#ce9042
-hi DiagnosticInfo  guifg=#00b3c2
+hi DiagnosticInfo  guifg=#61a3e6
 hi DiagnosticHint  guifg=#50b584
 
 " Make rainbow same as VSCode
@@ -119,7 +119,7 @@ hi TSRainbowBlue guifg=#4A9DF8
 
 hi HarpoonInactive guibg=#181b1f guifg=#636363
 hi HarpoonActive guibg=NONE guifg=#9e9e9e
-hi HarpoonNumberActive guibg=NONE guifg=#cecece
+hi HarpoonNumberActive guibg=NONE guifg=#fff7ed
 hi HarpoonNumberInactive guibg=#181b1f guifg=#636363
 hi TabLineFill guibg=#181b1f guifg=NONE
 

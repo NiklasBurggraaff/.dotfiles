@@ -15,13 +15,8 @@ autocmd("BufWinEnter", {
             vim.cmd.Git("push")
         end, opts)
 
-        -- rebase always
         vim.keymap.set("n", "<leader>j", function()
             vim.cmd.Git({"pull"})
         end, opts)
-
-        -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-        -- needed if i did not set the branch up correctly
-        -- vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
     end,
 })
