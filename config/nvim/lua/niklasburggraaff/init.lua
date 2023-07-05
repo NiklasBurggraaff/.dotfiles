@@ -7,7 +7,6 @@ require("niklasburggraaff.keymaps")
 -- Plugins
 require("niklasburggraaff.plugins.misc")
 require("niklasburggraaff.plugins.cmp")
-require("niklasburggraaff.plugins.fugitive")
 require("niklasburggraaff.plugins.lsp")
 require("niklasburggraaff.plugins.telescope")
 require("niklasburggraaff.plugins.treesitter")

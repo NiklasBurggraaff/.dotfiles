@@ -123,6 +123,12 @@ hi HarpoonNumberActive guibg=NONE guifg=#fff7ed
 hi HarpoonNumberInactive guibg=#181b1f guifg=#636363
 hi TabLineFill guibg=#181b1f guifg=NONE
 
+hi def NeogitDiffAddHighlight guibg=#3e4044 guifg=#9ca748
+hi def NeogitDiffDeleteHighlight guibg=#3e4044 guifg=#dc322f
+hi def NeogitDiffContextHighlight guibg=#3e4044 guifg=#9e9e9e
+hi def NeogitHunkHeader guifg=#fff7ed guibg=#3e4044
+hi def NeogitHunkHeaderHighlight guifg=#fff7ed guibg=#3e4044
+
 " Background: dark
 " Color: sunplus       rgb(255, 253, 251)        231         White
 " Color: sun           rgb(255, 247, 237)        255         LightGray

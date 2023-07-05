@@ -66,7 +66,7 @@ vim.keymap.set("n", "<C-;>", function() require("harpoon.ui").nav_file(4) end, {
 vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
 
 -- Git keymaps
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit)
 vim.keymap.set("n", "<leader>gd", vim.cmd.Gvdiffsplit)
 vim.keymap.set("n", "<leader>gb", vim.cmd.GitBlameToggle)
 vim.keymap.set("n", "<leader>gl", vim.cmd.Gclog)
