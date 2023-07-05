@@ -125,6 +125,10 @@ require("lazy").setup({
 
     -- Git related plugins
     {
+        "tpope/vim-fugitive",
+        cmd = { "Git", "Gdiffsplit", "Gdiff", "Gvdiffsplit", "Gvdiff", "Gwrite", "Gw" },
+    },
+    {
         "NeogitOrg/neogit",
         opts = {
             kind = "split",
@@ -135,10 +139,8 @@ require("lazy").setup({
             },
             mappings = {
                 status = {
-                    ["<C-j>"] = "PullPopup",
-                    ["<C-k>"] = "PushPopup",
-                    ["p"] = "",
-                    ["P"] = "",
+                    ["<C-j>"] = "Git pull",
+                    ["<C-k>"] = "Git push",
                 }
             }
         },

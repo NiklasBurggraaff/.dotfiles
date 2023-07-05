@@ -123,8 +123,12 @@ hi HarpoonNumberActive guibg=NONE guifg=#fff7ed
 hi HarpoonNumberInactive guibg=#181b1f guifg=#636363
 hi TabLineFill guibg=#181b1f guifg=NONE
 
+hi NeogitNotificationInfo guifg=#50b584
+hi NeogitNotificationWarning guifg=#9ca748
+hi NeogitNotificationError guifg=#df7f78
+
 hi def NeogitDiffAddHighlight guibg=#3e4044 guifg=#9ca748
-hi def NeogitDiffDeleteHighlight guibg=#3e4044 guifg=#dc322f
+hi def NeogitDiffDeleteHighlight guibg=#3e4044 guifg=#df7f78
 hi def NeogitDiffContextHighlight guibg=#3e4044 guifg=#9e9e9e
 hi def NeogitHunkHeader guifg=#fff7ed guibg=#3e4044
 hi def NeogitHunkHeaderHighlight guifg=#fff7ed guibg=#3e4044
