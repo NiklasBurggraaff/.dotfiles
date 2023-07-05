@@ -1,14 +1,13 @@
 -- [[ Keymaps ]]
 
 -- Keymaps for better default experience
--- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- Navigation
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, desc = "Scroll down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, desc = "Scroll up" })
+vim.keymap.set("n", "n", "nzzzv", { silent = true, desc = "Move to next match" })
+vim.keymap.set("n", "N", "Nzzzv", { silent = true, desc = "Move to previous match" })
 
 -- Use Ctrl-c to escape (helps when using visual block insert mode)
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -20,13 +19,12 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- NOTE: Keymaps for telescope (plugins/telescope.lua)
 
 -- Don't yank on cut
-vim.keymap.set("n", "x", [["_x]])
+vim.keymap.set("n", "x", [["_x]], { desc = "Cut without yanking" })
 
 -- Format file
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format file" })
 
--- Undotree
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndotree" })
+-- NOTE: Undotree (plugins-setup.lua)
 
 -- Project navigation
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
@@ -66,11 +64,7 @@ vim.keymap.set("n", "<C-;>", function() require("harpoon.ui").nav_file(4) end, {
 vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
 
 -- Git keymaps
-vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit)
-vim.keymap.set("n", "<leader>gd", vim.cmd.Gvdiffsplit)
-vim.keymap.set("n", "<leader>gb", vim.cmd.GitBlameToggle)
-vim.keymap.set("n", "<leader>gl", vim.cmd.Gclog)
--- NOTE: Git keymaps setup for fugitive (plugins/fugitive.lua) and gitsigns (plugins-setup.lua)
+-- NOTE: Git keymaps setup for neogit, git-blame, and gitsigns (plugins-setup.lua)
 
 -- Copy OS clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -80,9 +74,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Replace word under cursor
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Make file executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Keymaps for refactor
 -- Remaps for the refactoring operations currently offered by the plugin

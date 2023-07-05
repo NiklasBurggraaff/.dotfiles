@@ -58,3 +58,7 @@ vim.o.splitbelow = true
 
 -- Plugins
 vim.g.gitblame_enabled = 0
+
+vim.diagnostic.config {
+    float = { border = "rounded" },
+}

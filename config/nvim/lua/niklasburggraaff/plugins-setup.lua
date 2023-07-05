@@ -128,6 +128,11 @@ require("lazy").setup({
         "NeogitOrg/neogit",
         opts = {
             kind = "split",
+            disable_commit_confirmation = true,
+            disable_insert_on_commit = false,
+            commit_popup = {
+                kind = "floating",
+            },
             mappings = {
                 status = {
                     ["<C-j>"] = "PullPopup",
@@ -136,7 +141,16 @@ require("lazy").setup({
                     ["P"] = "",
                 }
             }
-        }
+        },
+        keys = {
+            { "<leader>gs", "<Cmd>Neogit<CR>", desc = "[G]it [S]tatus" },
+        },
+    },
+    {
+        "sindrets/diffview.nvim",
+        keys = {
+            { "<leader>gd", "<Cmd>DiffviewOpen<CR>", desc = "[G]it [D]iff" },
+        },
     },
     {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -161,7 +175,12 @@ require("lazy").setup({
             end,
         },
     },
-    "f-person/git-blame.nvim",
+    {
+        "f-person/git-blame.nvim",
+        keys = {
+            { "<leader>gb", "<Cmd>GitBlameToggle<CR>", desc = "[G]it [B]lame" },
+        },
+    },
 
     -- Detect tabstop and shiftwidth automatically
     "tpope/vim-sleuth",
@@ -275,7 +294,10 @@ require("lazy").setup({
             vim.g.undotree_WindowLayout = 4
             vim.g.undotree_SetFocusWhenToggle = 1
             vim.g.undotree_ShortIndicators = 1
-        end
+        end,
+        keys = {
+            { "<leader>u", "<Cmd>UndotreeToggle<CR>", desc = "[U]ndotree" },
+        }
     },
 
     {
