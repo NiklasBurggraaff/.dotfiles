@@ -69,8 +69,10 @@ function git_develop_branch() {
 
 #
 # Aliases
-# (sorted alphabetically)
 #
+
+alias 'g?'='git help'
+alias 'g??'='git help -a'
 
 alias ga='git add'
 alias gaa='git add --all'
@@ -80,7 +82,7 @@ alias gav='git add --verbose'
 alias gapp='git apply'
 alias gappt='git apply --3way'
 
-alias gb='git branch'
+alias gb='_fzf_git_branches | xargs git checkout'
 alias gba='git branch --all'
 alias gbd='git branch --delete'
 alias gbda='git branch --no-color --merged | command grep -vE "^([+*]|\s*($(git_main_branch)|$(git_develop_branch))\s*$)" | command xargs git branch --delete 2>/dev/null'
@@ -218,7 +220,7 @@ is-at-least 2.30 "$git_version" \
   && alias gksupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes' \
   || alias gksupf='git push --set-upstream origin $(git_current_branch) --force-with-lease'
 
-alias ghh='git help'
+alias gh='_fzf_git_hashes'
 
 alias gignore='git update-index --assume-unchanged'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
@@ -228,20 +230,20 @@ alias gk='\gitk --all --branches &!'
 alias gke='\gitk --all $(git log --walk-reflogs --pretty=%h) &!'
 
 alias gj='git pull'
-alias gjg='git log --stat'
-alias gjgp='git log --stat --patch'
-alias gjgg='git log --graph'
-alias gjgga='git log --graph --decorate --all'
-alias gjgm='git log --graph --max-count=10'
-alias gjo='git log --oneline --decorate'
-alias gjol="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
-alias gjols="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat"
-alias gjod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
-alias gjods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
-alias gjola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all"
-alias gjog='git log --oneline --decorate --graph'
-alias gjoga='git log --oneline --decorate --graph --all'
-alias gjp="_git_log_prettily"
+alias gl='git log --stat'
+alias glp='git log --stat --patch'
+alias glg='git log --graph'
+alias glga='git log --graph --decorate --all'
+alias glm='git log --graph --max-count=10'
+alias glo='git log --oneline --decorate'
+alias glol="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias glols="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat"
+alias glod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
+alias glods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+alias glola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all"
+alias glog='git log --oneline --decorate --graph'
+alias gloga='git log --oneline --decorate --graph --all'
+alias glp="_git_log_prettily"
 
 alias gm='git merge'
 alias gmom='git merge origin/$(git_main_branch)'
@@ -263,7 +265,7 @@ alias gkr='git pull --rebase'
 alias gku='git push upstream'
 alias gkv='git push --verbose'
 
-alias gr='git remote'
+alias gr='_fzf_git_remotes'
 alias gra='git remote add'
 alias grb='git rebase'
 alias grba='git rebase --abort'
@@ -319,6 +321,7 @@ alias gsw='git switch'
 alias gswc='git switch --create'
 alias gswm='git switch $(git_main_branch)'
 alias gswd='git switch $(git_develop_branch)'
+alias gstash='_fzf_git_stash'
 
 alias gts='git tag --sign'
 alias gtv='git tag | sort -V'
