@@ -78,25 +78,23 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Keymaps for refactor
 -- Remaps for the refactoring operations currently offered by the plugin
 vim.api.nvim_set_keymap("v", "<leader>re", [[ <Esc><Cmd>lua require("refactoring").refactor("Extract Function")<CR>]],
-    { noremap = true, silent = true, expr = false })
+    { noremap = true, silent = true, expr = false, desc = "[R]efactor [E]xtract function" })
 vim.api.nvim_set_keymap("v", "<leader>rf",
     [[ <Esc><Cmd>lua require("refactoring").refactor("Extract Function To File")<CR>]],
-    { noremap = true, silent = true, expr = false })
+    { noremap = true, silent = true, expr = false, desc = "[R]efactor extract function to [F]ile" })
 vim.api.nvim_set_keymap("v", "<leader>rv", [[ <Esc><Cmd>lua require("refactoring").refactor("Extract Variable")<CR>]],
-    { noremap = true, silent = true, expr = false })
-vim.api.nvim_set_keymap("v", "<leader>ri", [[ <Esc><Cmd>lua require("refactoring").refactor("Inline Variable")<CR>]],
-    { noremap = true, silent = true, expr = false })
+    { noremap = true, silent = true, expr = false, desc = "[R]efactor extract [V]ariable" })
 
 -- Extract block doesn"t need visual mode
 vim.api.nvim_set_keymap("n", "<leader>rb", [[ <Cmd>lua require("refactoring").refactor("Extract Block")<CR>]],
-    { noremap = true, silent = true, expr = false })
+    { noremap = true, silent = true, expr = false, desc = "[R]efactor extract [B]lock" })
 
 vim.api.nvim_set_keymap("n", "<leader>rbf", [[ <Cmd>lua require("refactoring").refactor("Extract Block To File")<CR>]],
-    { noremap = true, silent = true, expr = false })
+    { noremap = true, silent = true, expr = false, desc = "[R]efactor extract [B]lock to [F]ile" })
 
 -- Inline variable can also pick up the identifier currently under the cursor without visual mode
 vim.api.nvim_set_keymap("n", "<leader>ri", [[ <Cmd>lua require("refactoring").refactor("Inline Variable")<CR>]],
-    { noremap = true, silent = true, expr = false })
+    { noremap = true, silent = true, expr = false, desc = "[R]efactor [I]nline variable" })
 
 -- load refactoring Telescope extension
 require("telescope").load_extension("refactoring")
@@ -106,14 +104,13 @@ vim.api.nvim_set_keymap(
     "v",
     "<leader>rr",
     "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
-    { noremap = true }
+    { noremap = true, desc = "[R]efactor [R]efactoring menu" }
 )
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
     { silent = true, noremap = true }
@@ -130,7 +127,7 @@ vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
     { silent = true, noremap = true }
 )
-vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
+vim.keymap.set("n", "<leader>xs", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>")
 

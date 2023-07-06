@@ -32,28 +32,6 @@ local mode_map = {
     ["MORE"] = "M ",
 }
 
-local function shorten_filenames(filenames)
-    local shortened = {}
-
-    local counts = {}
-    for _, file in ipairs(filenames) do
-        local name = vim.fn.fnamemodify(file.filename, ":t")
-        counts[name] = (counts[name] or 0) + 1
-    end
-
-    for _, file in ipairs(filenames) do
-        local name = vim.fn.fnamemodify(file.filename, ":t")
-
-        if counts[name] == 1 then
-            table.insert(shortened, { filename = vim.fn.fnamemodify(name, ":t") })
-        else
-            table.insert(shortened, { filename = file.filename })
-        end
-    end
-
-    return shortened
-end
-
 require("lazy").setup({
     -- Lua utilities
     "nvim-lua/plenary.nvim",
@@ -67,7 +45,7 @@ require("lazy").setup({
                 -- config
             }
         end,
-        dependencies = { { "nvim-tree/nvim-web-devicons" } }
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     -- Directory tree
@@ -127,6 +105,9 @@ require("lazy").setup({
     {
         "tpope/vim-fugitive",
         cmd = { "Git", "Gdiffsplit", "Gdiff", "Gvdiffsplit", "Gvdiff", "Gwrite", "Gw" },
+        keys = {
+            { "<leader>gd", "<Cmd>Gvdiffsplit<CR>", desc = "[G]it [D]iff" }
+        }
     },
     {
         "NeogitOrg/neogit",
@@ -150,9 +131,9 @@ require("lazy").setup({
     },
     {
         "sindrets/diffview.nvim",
-        keys = {
-            { "<leader>gd", "<Cmd>DiffviewOpen<CR>", desc = "[G]it [D]iff" },
-        },
+        -- keys = {
+        --     { "<leader>gd", "<Cmd>DiffviewOpen<CR>", desc = "[G]it [D]iff" },
+        -- },
     },
     {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -216,7 +197,9 @@ require("lazy").setup({
     },
     {
         "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
+            mode = "document_diagnostics",
             signs = {
                 error = " ",
                 warning = " ",
@@ -225,6 +208,7 @@ require("lazy").setup({
                 other = " ",
             },
         },
+        cmd = { "TroubleToggle", "Trouble" },
     },
 
     {
@@ -338,7 +322,7 @@ require("lazy").setup({
     {
         "m4xshen/smartcolumn.nvim",
         opts = {
-            colorcolumn = "80",
+            colorcolumn = { "80", "120" },
             disabled_filetypes = { "help", "netrw", "lazy", "mason", "undotree", "text" },
             custom_colorcolumn = {},
             scope = "file",
