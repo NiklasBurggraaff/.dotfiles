@@ -169,8 +169,6 @@ require("lazy").setup({
     "tpope/vim-sleuth",
     -- Detect editorconfig
     "gpanders/editorconfig.nvim",
-    -- Fix tabs and spaces
-    { "tenxsoydev/tabs-vs-spaces.nvim", config = true },
 
     {
         -- LSP Configuration & Plugins
