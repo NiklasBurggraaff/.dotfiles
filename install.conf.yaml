@@ -1,14 +1,19 @@
 - defaults:
       link:
+          # Create parent directories
           create: true
+          # Remove old targets
           relink: true
 
+# Check for symlinks
 - clean:
+      # Delete symlinks in home dir
       "~":
           force: true
       ~/.config:
           recursive: true
 
+# Create symlinks for all the files and folders
 - link:
       # Home
       ~/.zshenv: home/.zshenv
@@ -28,6 +33,7 @@
           glob: true
           path: fonts/*
 
+# Create directory
 - create:
       - ~/.config/cache/zsh
 
