@@ -68,6 +68,11 @@ export OPENSSL_ROOT_DIR=/usr/local/opt/openssl@1.1
 # EUFS Specific
 export EUFS_MASTER=$EUFS/Code/eufs-master
 
+# NVM
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # pnpm
 export PNPM_HOME="/Users/niklas/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"

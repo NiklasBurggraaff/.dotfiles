@@ -220,7 +220,7 @@ is-at-least 2.30 "$git_version" \
   && alias gksupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes' \
   || alias gksupf='git push --set-upstream origin $(git_current_branch) --force-with-lease'
 
-alias gh='_fzf_git_hashes'
+alias ghs='_fzf_git_hashes'
 
 alias gignore='git update-index --assume-unchanged'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'

@@ -6,6 +6,9 @@
 alias "?"="glow $ZDOTDIR/README.md"
 alias "??"="glow -p $ZDOTDIR/README_FULL.md"
 
+alias "tmux?"="glow $XDG_CONFIG_HOME/tmux/README.md"
+alias "tmux??"="glow -p $XDG_CONFIG_HOME/tmux/README_FULL.md"
+
 # View configuration
 alias zsh-aliases="alias"
 alias zsh-keybinds="bindkey -M emacs"
@@ -72,7 +75,7 @@ alias nvimconf="(cd $XDG_CONFIG_HOME/nvim && vim .)"
 
 # Source config files
 alias zshs="source $ZDOTDIR/.zshrc"
-alias tmuxs="tmux source ~/.config/tmux/tmux.conf"
+alias tmuxs="tmux source $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # apt
 alias install="sudo apt install"
