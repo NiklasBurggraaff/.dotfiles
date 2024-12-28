@@ -9,58 +9,35 @@ main()
 {
   # set configuration option variables
   show_fahrenheit=$(get_tmux_option "@penumbra-show-fahrenheit" true)
-  show_location=$(get_tmux_option "@penumbra-show-location" true)
+  show_location=$(get_tmux_option "@penumbra-show-location" false)
   fixed_location=$(get_tmux_option "@penumbra-fixed-location")
-  show_powerline=$(get_tmux_option "@penumbra-show-powerline" false)
   show_flags=$(get_tmux_option "@penumbra-show-flags" false)
-  show_left_icon=$(get_tmux_option "@penumbra-show-left-icon" smiley)
-  show_left_icon_padding=$(get_tmux_option "@penumbra-left-icon-padding" 1)
-  show_military=$(get_tmux_option "@penumbra-military-time" false)
-  show_timezone=$(get_tmux_option "@penumbra-show-timezone" true)
-  show_left_sep=$(get_tmux_option "@penumbra-show-left-sep" )
-  show_right_sep=$(get_tmux_option "@penumbra-show-right-sep" )
+  show_military=$(get_tmux_option "@penumbra-military-time" true)
+  show_timezone=$(get_tmux_option "@penumbra-show-timezone" false)
+  show_left_sep=$(get_tmux_option "@penumbra-show-left-sep" )
+  show_right_sep=$(get_tmux_option "@penumbra-show-right-sep" )
   show_border_contrast=$(get_tmux_option "@penumbra-border-contrast" false)
-  show_day_month=$(get_tmux_option "@penumbra-day-month" false)
+  show_day_month=$(get_tmux_option "@penumbra-day-month" true)
   show_refresh=$(get_tmux_option "@penumbra-refresh-rate" 5)
   show_kubernetes_context_label=$(get_tmux_option "@penumbra-kubernetes-context-label" "")
   IFS=' ' read -r -a plugins <<< $(get_tmux_option "@penumbra-plugins" "battery time")
 
   # Penumbra Dark+ Color Pallette
-  white='#fff7ed'
-  gray='#24272b'
-  dark_gray='#181b1f'
-  light_purple='#d080b6'
-  dark_purple='#a48fe1'
-  cyan='#00b3c2'
-  green='#50b584'
-  orange='#ce9042'
-  red='#df7f78'
-  yellow='#9ca748'
-
-  # Handle left icon configuration
-  case $show_left_icon in
-    smiley)
-      left_icon="☺";;
-    session)
-      left_icon="#S";;
-    window)
-      left_icon="#W";;
-    *)
-      left_icon=$show_left_icon;;
-  esac
-
-  # Handle left icon padding
-  padding=""
-  if [ "$show_left_icon_padding" -gt "0" ]; then
-    padding="$(printf '%*s' $show_left_icon_padding)"
-  fi
-  left_icon="$left_icon$padding"
+  white='color07'
+  neutral='color08'
+  light_gray='#3E4044'
+  gray='#24262a'
+  dark_gray='color00'
+  red='color01'
+  green='color02'
+  yellow='color03'
+  blue='color04'
+  magenta='color05'
+  cyan='color06'
 
   # Handle powerline option
-  if $show_powerline; then
-    right_sep="$show_right_sep"
-    left_sep="$show_left_sep"
-  fi
+  right_sep="$show_right_sep"
+  left_sep="$show_left_sep"
 
   # Set timezone unless hidden by configuration
   case $show_timezone in
@@ -75,8 +52,8 @@ main()
       flags=""
       current_flags="";;
     true)
-      flags="#{?window_flags,#[fg=${dark_purple}]#{window_flags},}"
-      current_flags="#{?window_flags,#[fg=${light_purple}]#{window_flags},}"
+      flags="#{?window_flags,#[fg=${blue}]#{window_flags},}"
+      current_flags="#{?window_flags,#[fg=${magenta}]#{window_flags},}"
   esac
 
   # sets refresh interval to every 5 seconds
@@ -95,9 +72,9 @@ main()
 
   # pane border styling
   if $show_border_contrast; then
-    tmux set-option -g pane-active-border-style "fg=${light_purple}"
+    tmux set-option -g pane-active-border-style "fg=${magenta}"
   else
-    tmux set-option -g pane-active-border-style "fg=${dark_purple}"
+    tmux set-option -g pane-active-border-style "fg=${blue}"
   fi
   tmux set-option -g pane-border-style "fg=${gray}"
 
@@ -108,12 +85,8 @@ main()
   tmux set-option -g status-style "bg=${gray},fg=${white}"
 
   # Status left
-  if $show_powerline; then
-    tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${gray}]#{?client_prefix,#[fg=${yellow}],}${left_sep}"
-    powerbg=${gray}
-  else
-    tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon}"
-  fi
+  tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} #S #[fg=${green},bg=${gray}]#{?client_prefix,#[fg=${yellow}],}${left_sep} "
+  powerbg=${gray}
 
   # Status right
   tmux set-option -g status-right ""
@@ -167,9 +140,9 @@ main()
     fi
 
     if [ $plugin = "time" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@penumbra-time-colors" "dark_purple white")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@penumbra-time-colors" "blue white")
       if $show_day_month && $show_military ; then # military time and dd/mm
-        script="ka %d/%m %R ${timezone} "
+        script="%a %d/%m %R ${timezone} "
       elif $show_military; then # only military time
         script="%a %m/%d %R ${timezone} "
       elif $show_day_month; then # only dd/mm
@@ -179,22 +152,14 @@ main()
       fi
     fi
 
-    if $show_powerline; then
-      tmux set-option -ga status-right "#[fg=${!colors[0]},bg=${powerbg},nobold,nounderscore,noitalics]${right_sep}#[fg=${!colors[1]},bg=${!colors[0]}] $script "
-      powerbg=${!colors[0]}
-    else
-      tmux set-option -ga status-right "#[fg=${!colors[1]},bg=${!colors[0]}] $script "
-    fi
+    tmux set-option -ga status-right "#[fg=${!colors[0]},bg=${powerbg},nobold,nounderscore,noitalics]${right_sep}#[fg=${!colors[1]},bg=${!colors[0]}] $script "
+    powerbg=${!colors[0]}
   done
 
   # Window option
-  if $show_powerline; then
-    tmux set-window-option -g window-status-current-format "#[fg=${gray},bg=${dark_purple}]${left_sep}#[fg=${white},bg=${dark_purple}] #I #W${current_flags} #[fg=${dark_purple},bg=${gray}]${left_sep}"
-  else
-    tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${dark_purple}] #I #W${current_flags} "
-  fi
+  tmux set-window-option -g window-status-current-format "#[fg=${blue},bg=${gray}]#[fg=${white},bg=${blue}]#I#[fg=${blue},bg=${neutral}]#[fg=${white}]#[bg=${neutral}] #W${current_flags}#[fg=${neutral}]#[bg=${gray}]"
 
-  tmux set-window-option -g window-status-format "#[fg=${white}]#[bg=${gray}] #I #W${flags}"
+  tmux set-window-option -g window-status-format "#[fg=${light_gray}]#[bg=${gray}]#[fg=${white}]#[bg=${light_gray}]#I#[fg=${light_gray}]#[bg=${dark_gray}]#[fg=${white}]#[bg=${dark_gray}] #W${flags}#[fg=${dark_gray}]#[bg=${gray}]"
   tmux set-window-option -g window-status-activity-style "bold"
   tmux set-window-option -g window-status-bell-style "bold"
 }

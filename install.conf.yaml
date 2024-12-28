@@ -19,7 +19,6 @@
       ~/.zshenv: home/.zshenv
       ~/.gitconfig: home/.gitconfig
       ~/.hushlogin: home/.hushlogin
-      ~/.tmux.conf: home/.tmux.conf
       # Config
       ~/.config/:
           glob: true
