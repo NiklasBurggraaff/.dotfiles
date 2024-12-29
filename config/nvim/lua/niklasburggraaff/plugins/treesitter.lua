@@ -2,7 +2,7 @@
 -- See `:help nvim-treesitter`
 require("nvim-treesitter.configs").setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "typescript", "vimdoc", "vim" },
+    ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "typescript", "vimdoc", "vim", "markdown" },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -52,28 +52,14 @@ require("nvim-treesitter.configs").setup {
                 ["[]"] = "@class.outer",
             },
         },
-        -- swap = {
-        --     enable = true,
-        --     swap_next = {
-        --         ["<leader>a"] = "@parameter.inner",
-        --     },
-        --     swap_previous = {
-        --         ["<leader>A"] = "@parameter.inner",
-        --     },
-        -- },
-    },
-    rainbow = {
-        enable = true,
-        -- Make same as VSCode
-        strategy = require("ts-rainbow").strategy["local"],
-        hlgroups = {
-            'TSRainbowYellow',
-            'TSRainbowViolet',
-            'TSRainbowBlue',
-            -- 'TSRainbowRed',
-            -- 'TSRainbowOrange',
-            -- 'TSRainbowGreen',
-            -- 'TSRainbowCyan'
+        swap = {
+            enable = true,
+            swap_next = {
+                ["<leader>a"] = "@parameter.inner",
+            },
+            swap_previous = {
+                ["<leader>A"] = "@parameter.inner",
+            },
         },
     },
 }

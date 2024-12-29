@@ -47,6 +47,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   let g:terminal_ansi_colors = ['#24272b', '#df7f78', '#50b584', '#9ca748', '#61a3e6', '#d080b6', '#00b3c2', '#9e9e9e', '#3e4044', '#ce9042', '#50b584', '#9ca748', '#61a3e6', '#a48fe1', '#00b3c2', '#cecece']
 endif
 hi Normal guifg=#9e9e9e guibg=#24272b gui=NONE cterm=NONE
+hi NormalFloat guifg=#9e9e9e guibg=#24272b gui=NONE cterm=NONE
 hi Terminal guifg=#9e9e9e guibg=#24272b gui=NONE cterm=NONE
 hi ColorColumn guifg=fg guibg=#181b1f gui=NONE cterm=NONE
 hi Conceal guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
@@ -113,9 +114,9 @@ hi DiagnosticInfo  guifg=#61a3e6
 hi DiagnosticHint  guifg=#50b584
 
 " Make rainbow same as VSCode
-hi TSRainbowYellow guifg=#F9D749
-hi TSRainbowViolet guifg=#CC76D1
-hi TSRainbowBlue guifg=#4A9DF8
+hi RainbowYellow guifg=#F9D749
+hi RainbowViolet guifg=#CC76D1
+hi RainbowBlue guifg=#4A9DF8
 
 hi HarpoonInactive guibg=#181b1f guifg=#636363
 hi HarpoonActive guibg=NONE guifg=#9e9e9e

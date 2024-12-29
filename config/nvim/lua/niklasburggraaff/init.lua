@@ -1,8 +1,6 @@
-require("niklasburggraaff.core")
-
 require("niklasburggraaff.options")
 require("niklasburggraaff.plugins-setup")
-require("niklasburggraaff.keymaps")
+require("niklasburggraaff.keymaps").main()
 
 -- Plugins
 require("niklasburggraaff.plugins.misc")

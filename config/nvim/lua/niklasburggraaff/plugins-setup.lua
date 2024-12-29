@@ -38,33 +38,27 @@ require("lazy").setup({
 
     -- Dashboard when opening neovim
     {
-        "glepnir/dashboard-nvim",
+        "nvimdev/dashboard-nvim",
         event = "VimEnter",
         config = function()
-            require("dashboard").setup {
-                -- config
-            }
+            require("dashboard").setup()
         end,
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     -- Directory tree
     {
-        "prichrd/netrw.nvim",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
+        "stevearc/oil.nvim",
         opts = {
-            use_devicons = true,
+            delete_to_trash = true,
+            keymaps = require("niklasburggraaff.keymaps").oil_keymaps
         },
+        dependencies = { "nvim-tree/nvim-web-devicons" }
     },
     {
         "ThePrimeagen/harpoon",
-        opts = {
-            tabline = true,
-            tabline_prefix = "  ",
-            tabline_suffix = "  ",
-        }
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
     },
 
 
@@ -76,15 +70,15 @@ require("lazy").setup({
             options = {
                 icons_enabled = true,
                 theme = require("lualine.themes.penumbra-dark+"),
-                component_separators = { left = "", right = "" },
-                section_separators = { left = "", right = "" },
+                component_separators = { left = "|", right = "|" },
+                section_separators = { left = "", right = "" },
             },
             sections = {
                 lualine_a = { { "mode", fmt = function(s) return mode_map[s] or s end } },
-                lualine_b = { "branch", "diff", "diagnostics" },
+                lualine_b = { "branch", "diff" },
                 lualine_c = { "filename" },
-                lualine_x = { "encoding", "fileformat", "filetype" },
-                lualine_y = { "progress" },
+                lualine_x = { "encoding", "filetype" },
+                lualine_y = { "diagnostics" },
                 lualine_z = { "location" },
             },
             inactive_sections = {
@@ -105,12 +99,18 @@ require("lazy").setup({
     {
         "tpope/vim-fugitive",
         cmd = { "Git", "Gdiffsplit", "Gdiff", "Gvdiffsplit", "Gvdiff", "Gwrite", "Gw" },
-        keys = {
-            { "<leader>gd", "<Cmd>Gvdiffsplit<CR>", desc = "[G]it [D]iff" }
-        }
     },
     {
         "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",  -- required
+            "sindrets/diffview.nvim", -- optional - Diff integration
+
+            -- Only one of these is needed.
+            "nvim-telescope/telescope.nvim", -- optional
+            "ibhagwan/fzf-lua",              -- optional
+            "echasnovski/mini.pick",         -- optional
+        },
         opts = {
             kind = "split",
             disable_commit_confirmation = true,
@@ -118,22 +118,7 @@ require("lazy").setup({
             commit_popup = {
                 kind = "floating",
             },
-            mappings = {
-                status = {
-                    ["<C-j>"] = "Git pull",
-                    ["<C-k>"] = "Git push",
-                }
-            }
         },
-        keys = {
-            { "<leader>gs", "<Cmd>Neogit<CR>", desc = "[G]it [S]tatus" },
-        },
-    },
-    {
-        "sindrets/diffview.nvim",
-        -- keys = {
-        --     { "<leader>gd", "<Cmd>DiffviewOpen<CR>", desc = "[G]it [D]iff" },
-        -- },
     },
     {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -148,27 +133,15 @@ require("lazy").setup({
                 changedelete = { text = "~" },
                 untracked = { text = "|" },
             },
-            on_attach = function(bufnr)
-                vim.keymap.set("n", "<leader>gp", require("gitsigns").prev_hunk,
-                    { buffer = bufnr, desc = "[G]it go to [P]revious Hunk" })
-                vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk,
-                    { buffer = bufnr, desc = "[G]it go to [N]ext Hunk" })
-                vim.keymap.set("n", "<leader>gh", require("gitsigns").preview_hunk,
-                    { buffer = bufnr, desc = "[G]it preview [H]unk" })
-            end,
+            on_attach = require("niklasburggraaff.keymaps").git_signs_keymaps
         },
     },
     {
         "f-person/git-blame.nvim",
-        keys = {
-            { "<leader>gb", "<Cmd>GitBlameToggle<CR>", desc = "[G]it [B]lame" },
-        },
     },
 
     -- Detect tabstop and shiftwidth automatically
     "tpope/vim-sleuth",
-    -- Detect editorconfig
-    "gpanders/editorconfig.nvim",
 
     {
         -- LSP Configuration & Plugins
@@ -239,12 +212,6 @@ require("lazy").setup({
         }
     },
 
-    -- Easier macros
-    {
-        "chrisgrieser/nvim-recorder",
-        opts = {},
-    },
-
     -- Add scrollbar
     {
         "dstein64/nvim-scrollview",
@@ -258,10 +225,8 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x"
     },
-
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-    -- Only load if `make` is available. Make sure you have the system
-    -- requirements installed.
+    -- Only load if `make` is available.
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
@@ -279,9 +244,6 @@ require("lazy").setup({
             vim.g.undotree_SetFocusWhenToggle = 1
             vim.g.undotree_ShortIndicators = 1
         end,
-        keys = {
-            { "<leader>u", "<Cmd>UndotreeToggle<CR>", desc = "[U]ndotree" },
-        }
     },
 
     {
@@ -298,7 +260,7 @@ require("lazy").setup({
     -- Markdown preview
     {
         "ellisonleao/glow.nvim",
-        config = {
+        opts = {
             border = "rounded",
         },
         cmd = "Glow"
@@ -311,30 +273,53 @@ require("lazy").setup({
     },
     {
         "folke/todo-comments.nvim",
-        opts = {},
+        opts = {}
     },
 
-    "ThePrimeagen/refactoring.nvim",
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        lazy = false,
+        config = function()
+            require("refactoring").setup()
+        end,
+    },
 
     -- Add column when code is too long
     {
         "m4xshen/smartcolumn.nvim",
         opts = {
             colorcolumn = { "80", "120" },
-            disabled_filetypes = { "help", "netrw", "lazy", "mason", "undotree", "text" },
+            disabled_filetypes = {
+                "help", "netrw", "lazy", "mason", "undotree", "text", "dashboard"
+            },
             custom_colorcolumn = {},
             scope = "file",
         }
     },
 
     -- Colorful parenthesis matching
-    "HiPhish/nvim-ts-rainbow2",
+    {
+        "hiphish/rainbow-delimiters.nvim",
+        config = function()
+            vim.g.rainbow_delimiters = {
+                highlight = {
+                    "RainbowYellow",
+                    "RainbowViolet",
+                    "RainbowBlue",
+                },
+            }
+        end,
+    },
 
     -- Automatically close brackets
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        opts = {} -- this is equalent to setup({}) function
+        opts = {}
     },
     "windwp/nvim-ts-autotag",
 
@@ -349,7 +334,13 @@ require("lazy").setup({
     "ThePrimeagen/vim-be-good",
 
     -- AI
-    "github/copilot.vim",
+    -- "github/copilot.vim",
+    {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+            require("supermaven-nvim").setup({})
+        end,
+    },
 
     -- Time tracking
     "wakatime/vim-wakatime",
@@ -357,7 +348,6 @@ require("lazy").setup({
     {
         "dstein64/vim-startuptime",
         cmd = "StartupTime",
-        keys = { { "<leader>st", "<cmd>StartupTime<cr>", desc = "Show [S]tartup [T]ime" } },
         config = function()
             vim.g.startuptime_event_width = 64
         end,

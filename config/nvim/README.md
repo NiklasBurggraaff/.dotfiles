@@ -1,4 +1,107 @@
-# kickstart.nvim
+# My Neovim Configuration
+
+## Keybinds
+
+- Vim
+  - `<leader>vz` - Open Lazy
+  - `<leader>vm` - Open Mason
+  - `<leader>vl` - Open LspInfo
+- undotree
+  - `<leader>u` - Open undo tree
+- Harpoon
+  - `<leader>a` - Add file to harpoon
+  - `<leader>h` - Toggle harpoon menu
+  - `<C-[hjkl]>` - Navigate to file
+- Oil
+  - `g?` - Show help
+  - `<C-a>` - Show preview
+  - `gs` - Change sort
+  - `gx` - Open external
+  - `g.` - Toggle hidden
+- Diagnostics
+  - `<leader>td` - Telescope diagnostics
+  - `<leader>tt` - Telescope todo
+  - `[d` - Go to previous diagnostic
+  - `]d` - Go to next diagnostic
+  - `<leader>e` - Open diagnostic message
+- Comment.nvim ([link](https://github.com/numToStr/Comment.nvim?tab=readme-ov-file#-usage))
+  - `gcc` - Comment line
+  - `gbc` - Block comment line
+  - `gco` - Insert comment to the next line and enters INSERT mode
+  - `gcO` - Insert comment to the previous line and enters INSERT mode
+  - `gcA` - Insert comment to end of the current line and enters INSERT mode
+  - `gbaf` - Toggle comment around a function (w/ LSP/treesitter support)
+  - `gbac` - Toggle comment around a class (w/ LSP/treesitter support)
+- Git
+  - `<leader>gs` - Open neogit status
+  - `<leader>gd` - Show file git diff
+  - `<leader>gb` - Toggle blame
+- Telescope
+  - `<leader>t` - Open previous telescope
+
+## Plugins
+
+The following plugins are installed with lazy.nvim:
+
+### Main
+
+- lazy: Plugin manager
+- harpoon: Quick switching between files
+- oil: Simple file explorer
+- undotree: Undo history
+- supermaven-nvim: AI tool
+- vim-wakatime: Time tracking
+- mason: Lsp installer
+
+### Utilities
+
+- dashboard-nvim: Dashboard when opening vim
+- telescope: Fuzzy finder tool
+- lualine: Custom status line
+- wilder.nvim: Nicer wildmenu
+- which-key: Show keybinds
+- nvim-scrollview: Add scrollbar
+- smartcolumn.nvim: Highlight long lines
+- nvim-notify: Nicer notifications
+- todo-comments.nvim: Highlight TODOs
+- rainbow-delimiters.nvim: Add colors to pairs
+- nvim-colorizer: Show colors
+- tailwindcss-colorizer-cmp.nvim: Colorize colors in LSP
+
+### Git
+
+- neogit: Git commands in vim
+- git-blame: Show git blame
+- trouble.nvim: Show diagnostics
+- gitsigns: Add git signs in gutter
+
+### Tools
+
+- vim-sleuth: Detect tabs/spaces automatically (from Editorconfig)
+- Comment.nvim: Shortcuts to write comment
+- nvim-autopairs: Automatically handle pairs of characters
+- nvim-ts-autotag: Automatically close and rename html tags
+
+### Other
+
+- vim-be-good: Practice vim
+- glow.nvim: Markdown preview
+- vim-startuptime: Show startup time
+
+### TODO
+
+- nvim-cmp
+- lsp
+- refactoring
+- treesitter
+
+## Files
+
+- `~/.config/nvim/` - Neovim configuration directory
+- `~/.config/local/share/nvim/` - Plugin data directory
+- `~/.config/cache/nvim/` - Cache directory
+
+To reinstall the configuration, delete `~/.config/local/share/nvim/`.
 
 ### Introduction
 
