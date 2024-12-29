@@ -21,6 +21,7 @@ alias sudo="nocorrect sudo -E "
 # alias t="~/.tmux/tmux-sessionizer.bash"
 
 # List files
+alias cd="z"
 alias ls="lsd"
 alias la="ls -a"
 alias ll="ls -l"
