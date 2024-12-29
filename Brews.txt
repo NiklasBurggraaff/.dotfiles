@@ -9,3 +9,13 @@ jq
 zoxide
 oha
 lsd
+
+tmux
+nvim
+gh
+glab
+
+trash
+wget
+
+ghostty
