@@ -18,7 +18,7 @@ alias zsh-menu-keybinds="bindkey -M menuselect"
 alias sudo="nocorrect sudo -E "
 
 # tmux sessionizer
-# alias t="~/.tmux/tmux-sessionizer.bash"
+alias t="$XDG_CONFIG_HOME/tmux/tmux-sessionizer.bash"
 
 # List files
 alias cd="z"
@@ -73,6 +73,7 @@ alias terminatorconf="(cd $XDG_CONFIG_HOME/terminator && vim .)"
 alias gitconf="(cd $XDG_CONFIG_HOME/git && vim .)"
 alias tmuxconf="(cd $XDG_CONFIG_HOME/tmux && vim .)"
 alias nvimconf="(cd $XDG_CONFIG_HOME/nvim && vim .)"
+alias ghosttyconf="(cd $XDG_CONFIG_HOME/ghostty && vim .)"
 
 # Source config files
 alias zshs="source $ZDOTDIR/.zshrc"
