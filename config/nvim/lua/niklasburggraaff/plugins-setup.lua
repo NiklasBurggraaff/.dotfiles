@@ -257,6 +257,12 @@ require("lazy").setup({
         build = ":TSUpdate",
     },
 
+    {
+        "davidmh/mdx.nvim",
+        config = true,
+        dependencies = { "nvim-treesitter/nvim-treesitter" }
+    },
+
     -- Markdown preview
     {
         "ellisonleao/glow.nvim",
@@ -326,7 +332,9 @@ require("lazy").setup({
     -- Highlight colors
     {
         "NvChad/nvim-colorizer.lua",
-        opts = {}
+        opts = {
+            names = false
+        }
     },
     "roobert/tailwindcss-colorizer-cmp.nvim",
 

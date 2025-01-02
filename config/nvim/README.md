@@ -53,6 +53,10 @@ The following plugins are installed with lazy.nvim:
 - vim-wakatime: Time tracking
 - mason: Lsp installer
 
+### Special
+
+- mdx.nvim: Support for MDX
+
 ### Utilities
 
 - dashboard-nvim: Dashboard when opening vim
